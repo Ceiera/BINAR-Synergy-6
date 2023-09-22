@@ -1,0 +1,199 @@
+body {
+  font-family: Helvetica;
+}
+
+p {
+  font-size: 0.9rem;
+}
+
+h1{
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 3.375rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 2.25rem;
+}
+h5 {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5rem;
+}
+
+.logo-placeholder {
+  width: 6.5rem;
+  height: 2rem;
+  background-color: #0d28a6;
+}
+
+.header {
+  padding: 1.5rem 8.5rem;
+  background-color: #f1f3ff;
+}
+
+.navigation {
+  margin-right: 2rem;
+}
+
+.hero {
+  padding: 3rem 0 0 8.5rem;
+  margin-bottom: 3rem;
+  background-color: #f1f3ff;
+}
+
+.hero__items {
+  width: 50%;
+}
+
+.hero__p {
+  padding-right: 6rem;
+}
+
+.our-services {
+  padding: 6rem 13rem;
+}
+
+.our-services__items {
+  width: 45%;
+}
+
+.our-services__span {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+
+.why-us {
+  padding: 3rem 13rem;
+}
+
+.why-us__items {
+  display: flex;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--neutral-02, #d0d0d0);
+}
+
+.why-us__p {
+  font-size: 0.8rem;
+}
+
+
+.cta-banner {
+  margin: 3rem 8.5rem;
+  background-color: #0d28a6;
+  padding: 4rem 17rem;
+}
+
+.faq {
+  margin: 6rem 8.5rem;
+}
+
+.faq__text {
+  width: 35%;
+}
+
+.faq__accordion {
+  width: 60%;
+}
+
+.footer {
+  margin: 7rem 8.5rem;
+  padding-right: 5rem;
+}
+
+.footer__p {
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px){
+  html{
+    font-size: 24px;
+  }
+  .header{
+    padding: 1.5rem 1rem;
+  }
+  .navigation {
+    margin-right: 2rem;
+  }
+  
+  .hero {
+    padding: 3rem 0 0 1rem;
+    margin-bottom: 1.5rem;
+    background-color: #f1f3ff;
+  }
+  
+  .hero__items {
+    width: 100%;
+  }
+
+
+  .hero__p {
+    padding-right: 6rem;
+  }
+  
+  .our-services {
+    padding: 3rem 1rem;
+  }
+
+  .our-services > img{
+    width: 80%;
+  }
+  
+  .our-services__items {
+    width: 100%;
+  }
+  
+  .our-services__span {
+    position: relative;
+    width: 24px;
+    height: 24px;
+  }
+  
+  .why-us {
+    padding: 3rem 13rem;
+  }
+  
+  .why-us__items {
+    display: flex;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--neutral-02, #d0d0d0);
+  }
+  
+  .why-us__p {
+    font-size: 0.8rem;
+  }
+  
+  
+  .cta-banner {
+    margin: 3rem 8.5rem;
+    background-color: #0d28a6;
+    padding: 4rem 17rem;
+  }
+  
+  .faq {
+    margin: 6rem 8.5rem;
+  }
+  
+  .faq__text {
+    width: 35%;
+  }
+  
+  .faq__accordion {
+    width: 60%;
+  }
+  
+  .footer {
+    margin: 7rem 8.5rem;
+    padding-right: 5rem;
+  }
+  
+  .footer__p {
+    font-size: 0.9rem;
+  }
+
+}
