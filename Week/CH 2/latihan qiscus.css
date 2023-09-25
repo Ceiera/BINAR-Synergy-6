@@ -1,0 +1,206 @@
+html {
+  font-family: sans-serif;
+}
+
+p {
+  font-size: 18px;
+}
+
+h1 {
+  font-size: 42px;
+  color: #01416c;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 40px;
+  color: #01416c;
+}
+
+h4 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #01416c;
+}
+
+.container__self {
+  margin: 0 34.5px;
+  padding: 100px 90px;
+}
+
+.img__hero {
+  width: 500px;
+}
+
+#banner {
+  background-color: #2f80ed;
+}
+
+.banner > h2 {
+  color: white;
+}
+
+.banner__box {
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  width: 320px;
+  height: 126px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 0;
+  padding-right: 0;
+  gap: 8px 0;
+  border: solid 3px white;
+  border-radius: 8px;
+}
+
+.banner__box--title {
+  min-width: unset;
+  width: 100%;
+  text-align: center;
+  display: inline-flex;
+  justify-content: center;
+  line-height: 42px;
+  font-size: 42px;
+  color: white;
+}
+
+.banner__box--text {
+  text-align: center;
+  width: 210px;
+  margin: 0 auto;
+  line-height: 21.78px;
+  font-size: 1.125rem;
+  color: white;
+}
+
+#testimoni {
+  background-color: #eff7fc;
+}
+
+.testimoni__box {
+  width: 30%;
+  padding: 1.5rem;
+  background-color: #fff;
+  text-align: left;
+  border-radius: 0.5rem;
+}
+
+.testimoni__box > img {
+  width: 150px;
+}
+
+#form {
+  background-color: #eff7fc;
+}
+
+.form__box {
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  background-color: #fff;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+form {
+  padding: 36px 40px;
+}
+
+.form-group {
+  width: 47%;
+}
+
+.form-group > input {
+  width: 100%;
+}
+
+footer {
+  background-color: #01416c !important;
+  padding: 96px 20px 20px 20px;
+}
+
+.footer__top {
+  margin: 0 58px;
+  padding: 0 50px;
+}
+
+.footer__top > div {
+  width: 23%;
+}
+
+.footer__top > div > p {
+  color: white;
+  font-size: 14px;
+}
+
+.footer__bottom {
+  padding: 32px 16px;
+  border-top: solid 1px white;
+}
+
+@media (min-width: 576px) {
+  form {
+    width: 500px;
+  }
+}
+
+@media (min-width: 994px) {
+  form {
+    width: 920px;
+  }
+}
+
+@media (max-width: 993px) {
+  .container__self {
+    margin: 0 3rem;
+    padding: 3rem 3rem;
+  }
+
+  p {
+    font-size: 0.875rem;
+    text-align: center;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 24px;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 24px;
+  }
+
+  h4 {
+    font-size: 1.125rem;
+    text-align: center;
+  }
+
+  .testimoni__box {
+    width: 100%;
+  }
+
+  .testimoni__box > p {
+    text-align: start;
+  }
+
+  form {
+    padding: 3rem 3rem;
+  }
+
+  .form-group{
+    width: 100%;
+  }
+
+  .footer__top > div {
+    width: 100%;
+  }
+  .footer__top > div > p {
+    text-align: start;
+  }
+
+  .demo__button{
+    text-align: center;
+  }
+}
