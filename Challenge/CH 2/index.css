@@ -14,6 +14,10 @@ body {
   width: 75%;
 }
 
+.img__carousel{
+  width: 100%;
+}
+
 .offcanvas {
   max-width: 50%;
 }
@@ -24,6 +28,10 @@ body {
 
 .padding--hero {
   padding: 1.5rem 0 1.5rem 1rem;
+}
+
+.margin--carousel{
+  margin: 1.5rem 1rem;
 }
 
 .navbar__color {
@@ -98,5 +106,21 @@ p {
 
   .carousel__box > div > img {
     width: 120px;
+  }
+
+  .img__carousel{
+    width: 100%;
+  }
+  .carousels-cell{
+    width: 44%;
+    margin-right: 5rem;
+    height: 17rem;
+  }
+
+  .margin--carousel{
+    margin: 0;
+  }
+  .carousels-cell::before{
+    display: block;
   }
 }
