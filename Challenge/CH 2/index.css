@@ -105,7 +105,7 @@ p {
   }
 
   .carousel__box > div > img {
-    width: 120px;
+    width: 5rem;
   }
 
   .img__carousel{
@@ -113,7 +113,7 @@ p {
   }
   .carousels-cell{
     width: 44%;
-    margin-right: 5rem;
+    margin-right: 2rem;
     height: 17rem;
   }
 
