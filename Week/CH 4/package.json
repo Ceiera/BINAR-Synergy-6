@@ -7,7 +7,8 @@
     "nodemon": "^3.0.1"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "cobalah": "tsc githubtapits.ts && node githubtapits.js && rm githubtapits.ts"
   },
   "type": "module"
 }
