@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="teks">Default</h1>
+    <input type="text" name="" id="input-teks" />
+    <input type="color" name="" id="input-color" />
+    <h1>rubah gb dibawah</h1>
+    <input type="color" name="" id="input-color-bg" />
+    <script>
+      let h1Teks = document.getElementById("teks");
+      let inputTeks = document.getElementById("input-teks");
+      inputTeks.addEventListener("input", function () {
+        h1Teks.innerText = this.value;
+      });
+
+      let inputColor = document.getElementById("input-color");
+      inputColor.addEventListener("input", function () {
+        h1Teks.style.color = this.value;
+      });
+      
+      let body = document.body;
+      let inputColorBg = document.getElementById("input-color-bg");
+      inputColorBg.addEventListener("input", function () {
+        body.style.backgroundColor = this.value;
+      });
+    </script>
+  </body>
+</html>
