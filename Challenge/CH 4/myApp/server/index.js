@@ -3,6 +3,13 @@ import fs from "node:fs";
 
 const PUBLIC = "./public";
 
+const ambilNumberImage = (url) => {
+  const alamat = url;
+  const anu = alamat.split("/")[2];
+  const number = anu.split(".")[0].slice(3);
+  return number;
+};
+
 const { PORT = 3000 } = process.env;
 
 const onRequest = (req, res) => {
@@ -13,7 +20,63 @@ const onRequest = (req, res) => {
   let css = "";
   let fileJs = "";
   let js = "";
+  let fileImg = "";
+  let img = "";
   switch (halaman) {
+    case "/images/car01.min.jpg":
+      fileImg = PUBLIC + "/images/car01.min.jpg";
+      img = fs.createReadStream(fileImg);
+      res.writeHead(200, { "Content-Type": "image/jpg" });
+      img.pipe(res);
+      break;
+      case "/images/car02.min.jpg":
+      fileImg = PUBLIC + "/images/car02.min.jpg";
+      img = fs.createReadStream(fileImg);
+      res.writeHead(200, { "Content-Type": "image/jpg" });
+      img.pipe(res);
+      break;
+      case "/images/car03.min.jpg":
+      fileImg = PUBLIC + "/images/car03.min.jpg";
+      img = fs.createReadStream(fileImg);
+      res.writeHead(200, { "Content-Type": "image/jpg" });
+      img.pipe(res);
+      break;
+      case "/images/car04.min.jpg":
+      fileImg = PUBLIC + "/images/car04.min.jpg";
+      img = fs.createReadStream(fileImg);
+      res.writeHead(200, { "Content-Type": "image/jpg" });
+      img.pipe(res);
+      break;
+      case "/images/car05.min.jpg":
+      fileImg = PUBLIC + "/images/car05.min.jpg";
+      img = fs.createReadStream(fileImg);
+      res.writeHead(200, { "Content-Type": "image/jpg" });
+      img.pipe(res);
+      break;
+      case "/images/car06.min.jpg":
+      fileImg = PUBLIC + "/images/car06.min.jpg";
+      img = fs.createReadStream(fileImg);
+      res.writeHead(200, { "Content-Type": "image/jpg" });
+      img.pipe(res);
+      break;
+      case "/images/car07.min.jpg":
+      fileImg = PUBLIC + "/images/car07.min.jpg";
+      img = fs.createReadStream(fileImg);
+      res.writeHead(200, { "Content-Type": "image/jpg" });
+      img.pipe(res);
+      break;
+      case "/images/car08.min.jpg":
+      fileImg = PUBLIC + "/images/car08.min.jpg";
+      img = fs.createReadStream(fileImg);
+      res.writeHead(200, { "Content-Type": "image/jpg" });
+      img.pipe(res);
+      break;
+      case "/images/car09.min.jpg":
+      fileImg = PUBLIC + "/images/car09.min.jpg";
+      img = fs.createReadStream(fileImg);
+      res.writeHead(200, { "Content-Type": "image/jpg" });
+      img.pipe(res);
+      break;
     case "/scripts/app.example.js":
       fileJs = PUBLIC + "/scripts/app.example.js";
       js = fs.readFileSync(fileJs, "utf-8");

@@ -162,4 +162,8 @@ width: 30%;
     /* Shadow/High */
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
   }
+  .result-image{
+    width: 16rem;
+    height: 10rem;
+  }
 }
