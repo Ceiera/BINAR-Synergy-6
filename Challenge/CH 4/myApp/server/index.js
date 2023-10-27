@@ -3,23 +3,22 @@ import fs from "node:fs";
 
 const PUBLIC = "./public";
 
-
 const { PORT = 3000 } = process.env;
 
 const onRequest = (req, res) => {
   const halaman = req.url;
 
   const routes = [
-    { path: '/images/', contentType: 'image/jpg' },
-    { path: '/scripts/', contentType: 'text/javascript' },
-    { path: '/css/', contentType: 'text/css' },
-    { path: '/cars', contentType: 'text/html' },
-    { path: '/', contentType: 'text/html' },
+    { path: "/images/", contentType: "image/jpg" },
+    { path: "/scripts/", contentType: "text/javascript" },
+    { path: "/css/", contentType: "text/css" },
+    { path: "/cars", contentType: "text/html" },
+    { path: "/", contentType: "text/html" },
   ];
 
   const route = routes.find((r) => halaman.startsWith(r.path));
-  let fileHtml  = ""
-  let html = ""
+  let fileHtml = "";
+  let html = "";
   switch (route.path) {
     case "/images/":
       const fileImg = PUBLIC + req.url;
