@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Binar Car Rental</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="./css/carimobil.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.2/flickity.min.css"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  </head>
+  <body class="position-relative">
+    <header class="sticky-top">
+      <nav
+        class="navbar navbar-expand-lg padding--all navbar__color"
+        aria-label="Offcanvas navbar large"
+      >
+        <div class="container-fluid px-0">
+          <a class="navbar-brand logo-placeholder" href="#hero"></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar2"
+            aria-controls="offcanvasNavbar2"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div
+            class="offcanvas offcanvas-end"
+            tabindex="-1"
+            id="offcanvasNavbar2"
+            aria-labelledby="offcanvasNavbar2Label"
+          >
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasNavbar2Label">BCR</h5>
+              <button
+                type="button"
+                class="btn-close btn-close"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul
+                class="navbar-nav justify-content-end column-gap-lg-3 flex-grow-1"
+              >
+                <li class="nav-item navigation me-0">
+                  <a class="nav-link text-black" href="#our-services"
+                    >Our Services</a
+                  >
+                </li>
+                <li class="nav-item navigation me-0">
+                  <a class="nav-link text-black" href="#why-us">Why Us</a>
+                </li>
+                <li class="nav-item navigation me-0">
+                  <a class="nav-link text-black" href="#testimonial"
+                    >Testimonial</a
+                  >
+                </li>
+                <li class="nav-item navigation me-0">
+                  <a class="nav-link text-black" href="#faq">FAQ</a>
+                </li>
+                <li class="nav-item navigation me-0">
+                  <a class="btn btn-success" href="#hero">Register</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <section id="hero">
+      <div
+        class="d-flex flex-column flex-lg-row align-items-center navbar__color row-gap-2 column-gap-lg-5"
+      >
+        <div class="d-flex flex-column padding--all pe-5">
+          <h1>Sewa & Rental Mobil Terbaik di kawasan (Lokasimu)</h1>
+          <p style="text-align: justify">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+        <div class="padding--hero">
+          <img
+            src="https://i.ibb.co/mvyLpRS/image.png"
+            class="img__car"
+            alt=""
+          />
+        </div>
+      </div>
+    </section>
+
+    <section id="search-group" class="position-absolute z-2 search-group">
+      <div class="position-static mx-auto">
+        <div
+          class="search d-flex flex-lg-row justify-content-between align-items-center"
+          id="search"
+        >
+          <div class="grup-input d-flex flex-lg-column row-gap-2">
+            <label for="type-driver">Tipe Driver</label>
+            <select name="type-driver" id="type-driver">
+              <option value="">Dengan Sopir</option>
+              <option value="">Tanpa Sopir (Lepas Kunci)</option>
+            </select>
+          </div>
+          <div class="grup-input d-flex flex-lg-column row-gap-2">
+            <label for="choose-date">Pilih Tanggal</label>
+            <input type="date" name="choose-date" id="choose-date" />
+          </div>
+          <div class="grup-input d-flex flex-lg-column row-gap-2">
+            <label for="choose-time">Pilih Waktu</label>
+            <select name="choose-time" id="choose-time">
+              <option value="9">09:00 WIB</option>
+            </select>
+          </div>
+          <div class="grup-input d-flex flex-lg-column row-gap-2">
+            <label for="passenger">Jumlah Penumpang (Opsional)</label>
+            <input type="text" name="passenger" id="passenger" />
+          </div>
+          <div class="grup-input d-flex flex-lg-column row-gap-2">
+            <div>.</div>
+            <button class="btn btn-success" id="load-btn">Cari Mobil</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="result" class="result">
+      <div
+        class="d-flex flex-lg-wrap justify-content-lg-between row-gap-lg-5"
+        class="result-append"
+        id="result-append"
+      ></div>
+    </section>
+    <footer>
+      <div
+        class="d-flex flex-lg-row justify-content-lg-between flex-column mt-3 padding--all row-gap-3 mt-lg-5"
+      >
+        <div class="d-flex flex-column">
+          <p>Jalan Suroyo No. 161 Mayangan Kota <br />Probolonggo 672000</p>
+          <p>binarcarrental@gmail.com</p>
+          <p>081-233-334-808</p>
+        </div>
+        <div
+          class="d-flex flex-column justify-content-between row-gap-3 fw-bolder"
+        >
+          <a class="nav-link" href="#our-services">Our Services</a>
+          <a class="nav-link" href="#why-us">Why Us</a>
+          <a class="nav-link" href="#testimonial">Testimonial</a>
+          <a class="nav-link" href="#faq">FAQ</a>
+        </div>
+        <div class="d-flex flex-column">
+          <p>Connect with us</p>
+          <div class="d-flex flex-row column-gap-3">
+            <ion-icon
+              name="logo-facebook"
+              size="large"
+              style="color: #0d28a6"
+            ></ion-icon>
+            <ion-icon
+              name="logo-instagram"
+              size="large"
+              style="color: #0d28a6"
+            ></ion-icon>
+            <ion-icon
+              name="logo-twitter"
+              size="large"
+              style="color: #0d28a6"
+            ></ion-icon>
+            <ion-icon
+              name="mail"
+              size="large"
+              style="color: #0d28a6"
+            ></ion-icon>
+            <ion-icon
+              name="logo-twitch"
+              size="large"
+              style="color: #0d28a6"
+            ></ion-icon>
+          </div>
+        </div>
+        <div class="d-flex flex-column row-gap-1">
+          <p>Copyright Binar 2022</p>
+          <div class="logo-placeholder"></div>
+        </div>
+      </div>
+    </footer>
+    <div><button id="clear-btn">clear</button></div>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <script>
+      const hero = document.getElementById("hero");
+      console.log(hero.offsetHeight * 0.063);
+      const search = document.getElementById("search-group");
+      search.style.top = hero.offsetHeight * 0.063 + 4 + "rem";
+      search.style.left = "15%";
+    </script>
+    <script type="text/javascript" src="./scripts/binar.js"></script>
+    <script type="text/javascript" src="./scripts/app.example.js"></script>
+    <script type="text/javascript" src="./scripts/car.example.js"></script>
+    <script type="text/javascript" src="./scripts/main.example.js"></script>
+  </body>
+</html>
