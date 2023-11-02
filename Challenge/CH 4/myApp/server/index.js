@@ -9,7 +9,7 @@ const onRequest = (req, res) => {
   const halaman = req.url;
 
   const routes = [
-    { path: "/images/", contentType: "image/jpg" },
+    { path: "/images/", contentType: "image/jpg"},
     { path: "/scripts/", contentType: "text/javascript" },
     { path: "/css/", contentType: "text/css" },
     { path: "/cars", contentType: "text/html" },
@@ -23,31 +23,31 @@ const onRequest = (req, res) => {
     case "/images/":
       const fileImg = PUBLIC + req.url;
       const img = fs.createReadStream(fileImg);
-      res.writeHead(200, { "Content-Type": "image/jpg" });
+      res.writeHead(200, { "Content-Type": route.contentType });
       img.pipe(res);
       break;
     case "/scripts/":
       const fileJs = PUBLIC + req.url;
       const js = fs.readFileSync(fileJs, "utf-8");
-      res.writeHead(200, { "Content-Type": "text/javascript" });
+      res.writeHead(200, { "Content-Type": route.contentType });
       res.end(js);
       break;
     case "/css/":
       const fileCss = PUBLIC + req.url;
       const css = fs.readFileSync(fileCss, "utf-8");
-      res.writeHead(200, { "Content-Type": "text/css" });
+      res.writeHead(200, { "Content-Type": route.contentType });
       res.end(css);
       break;
     case "/cars":
       fileHtml = PUBLIC + "/carimobil.html";
       html = fs.readFileSync(fileHtml, "utf-8");
-      res.writeHead(200, { "Content-Type": "text/html" });
+      res.writeHead(200, { "Content-Type": route.contentType });
       res.end(html);
       break;
     case "/":
       fileHtml = PUBLIC + "/landingpage.html";
       html = fs.readFileSync(fileHtml, "utf-8");
-      res.writeHead(200, { "Content-Type": "text/html" });
+      res.writeHead(200, { "Content-Type": route.contentType});
       res.end(html);
       break;
     default:
