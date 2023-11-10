@@ -25,6 +25,7 @@
   },
   "scripts": {
     "dev": "ts-node-dev src/index.ts",
-    "migrate": "knex migrate:latest"
+    "migrate": "knex migrate:latest",
+    "start": "ts-node src/index.ts"
   }
 }
