@@ -1,4 +1,3 @@
-import { raw } from "objection";
 import { Car, CarEntity } from "../models/entity/car";
 import CarRequest from "../models/dto/car";
 

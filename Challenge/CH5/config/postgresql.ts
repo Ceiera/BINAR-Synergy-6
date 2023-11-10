@@ -3,9 +3,10 @@ import knex from 'knex';
 const knexInstance = knex({
   client: 'postgresql',
   connection: {
-    database: "db_cars_knex",
-    user: "postgres",
-    password: "fairytail71",
+    host: `${process.env.POSTGRESQL_HOST}`,
+    database: `${process.env.POSTGRESQL_DATABASE}`,
+    user: `${process.env.POSTGRESQL_USER}`,
+    password: `${process.env.POSTGRESQL_PASSWORD}`,
   },  
 });
 

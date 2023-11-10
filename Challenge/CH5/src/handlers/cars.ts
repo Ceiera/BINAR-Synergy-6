@@ -23,6 +23,14 @@ class CarsHandler {
   async getCarById(req: Request, res: Response): Promise<any> {
     try {
       const id = parseInt(req.params.id);
+      if (id === null) {
+        const response: DefaultResponse = {
+          status: "ERROR",
+          message: "Missing Params id",
+          data: [],
+        };
+        return res.status(400).send(response);
+      }
       const cars: Car[] = await CarsService.getCarById(id);
       if (cars.length === 0) {
         const response: DefaultResponse = {
@@ -128,7 +136,7 @@ class CarsHandler {
       if (!req.query.size) {
         const response: DefaultResponse = {
           status: "ERROR",
-          message: "Query Missing size",
+          message: "Missing Query size",
           data: [],
         };
         return res.status(400).send(response);
