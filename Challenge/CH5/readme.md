@@ -14,11 +14,11 @@ Challenge 5 Binar is an Creating Example Backend for Cars Rental using Express J
 
 ### GET all cars
 
-```http
+```
   GET /api/cars
 ```
 #### Response Success
-```http
+```
   Status Code: 200
   {
      status: "OK",
@@ -27,7 +27,7 @@ Challenge 5 Binar is an Creating Example Backend for Cars Rental using Express J
   }
 ```
 #### Response Failed
-```http
+```
   Status Code: 500
   {
      error
@@ -37,7 +37,7 @@ Challenge 5 Binar is an Creating Example Backend for Cars Rental using Express J
 ### GET Cars by id
 
 #### Request Body
-```http
+```
   GET /api/cars/${id}
 ```
 
@@ -46,7 +46,7 @@ Challenge 5 Binar is an Creating Example Backend for Cars Rental using Express J
 | `id`      | `string` | **Required**. Id of cars to fetch |
 
 #### Response Success
-```http
+```
   Status Code: 200
   {
      status: "OK",
@@ -55,7 +55,7 @@ Challenge 5 Binar is an Creating Example Backend for Cars Rental using Express J
   }
 ```
 #### Response Failed
-```http
+```
   Status Code: 404
   {
      status: "ERROR",
@@ -64,7 +64,7 @@ Challenge 5 Binar is an Creating Example Backend for Cars Rental using Express J
   }
 ```
 
-```http
+```
   Status Code: 400
   {
      status: "ERROR",
@@ -73,7 +73,7 @@ Challenge 5 Binar is an Creating Example Backend for Cars Rental using Express J
   }
 ```
 
-```http
+```
   Status Code: 500
   {
      error
@@ -82,7 +82,7 @@ Challenge 5 Binar is an Creating Example Backend for Cars Rental using Express J
 
 ### GET Cars by size
 
-```http
+```
   GET /api/cars/size
 ```
 
@@ -91,7 +91,7 @@ Challenge 5 Binar is an Creating Example Backend for Cars Rental using Express J
 | `size`      | `string` | **Required**. size of cars to fetch |
 
 #### Response Success
-```http
+```
   Status Code: 200
   {
      status: "OK",
@@ -100,7 +100,7 @@ Challenge 5 Binar is an Creating Example Backend for Cars Rental using Express J
   }
 ```
 #### Response Failed
-```http
+```
   Status Code: 404
   {
      status: "ERROR",
@@ -109,7 +109,7 @@ Challenge 5 Binar is an Creating Example Backend for Cars Rental using Express J
   }
 ```
 
-```http
+```
   Status Code: 400
   {
      status: "ERROR",
@@ -118,7 +118,7 @@ Challenge 5 Binar is an Creating Example Backend for Cars Rental using Express J
   }
 ```
 
-```http
+```
   Status Code: 500
   {
      error
@@ -127,7 +127,7 @@ Challenge 5 Binar is an Creating Example Backend for Cars Rental using Express J
 
 ### POST Cars
 
-```http
+```
   POST /api/cars
 ```
 
@@ -139,7 +139,7 @@ Challenge 5 Binar is an Creating Example Backend for Cars Rental using Express J
 | `car_picture`      | `file img` | **Required**. car_picture of cars to fetch |
 
 #### Response Success
-```http
+```
   Status Code: 201
   {
      status: "OK",
@@ -149,7 +149,7 @@ Challenge 5 Binar is an Creating Example Backend for Cars Rental using Express J
 ```
 #### Response Failed
 
-```http
+```
   Status Code: 400
   {
      status: "ERROR",
@@ -158,7 +158,7 @@ Challenge 5 Binar is an Creating Example Backend for Cars Rental using Express J
   }
 ```
 
-```http
+```
   Status Code: 500
   {
      error
@@ -167,39 +167,13 @@ Challenge 5 Binar is an Creating Example Backend for Cars Rental using Express J
 
 ### PATCH Cars
 
-```http
+```
   PATCH /api/cars/:id
 ```
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
 | `id`      | `string` | **Required**. id of cars to fetch |
 
-#### Response Success
-```http
-  Status Code: 200
-  {
-     status: "OK",
-     message: "Success create data cars",
-     data: cars, 
-  }
-```
-#### Response Failed
-
-```http
-  Status Code: 400
-  {
-     status: "ERROR",
-     message: "Failed update data cars",
-     data: [],
-  }
-```
-
-```http
-  Status Code: 500
-  {
-     error
-  }
-```
 
 
 | Body | Type     | Description                       |
@@ -209,9 +183,37 @@ Challenge 5 Binar is an Creating Example Backend for Cars Rental using Express J
 | `size`      | `string` | **Required**. size of cars to fetch |
 | `car_picture`      | `file img` | **Required**. car_picture of cars to fetch |
 
+#### Response Success
+```
+  Status Code: 200
+  {
+     status: "OK",
+     message: "Success create data cars",
+     data: cars, 
+  }
+```
+#### Response Failed
+
+```
+  Status Code: 400
+  {
+     status: "ERROR",
+     message: "Failed update data cars",
+     data: [],
+  }
+```
+
+```
+  Status Code: 500
+  {
+     error
+  }
+```
+
+
 ### DELETE Cars by id
 
-```http
+```
   DELETE /api/cars/${id}
 ```
 
@@ -220,7 +222,7 @@ Challenge 5 Binar is an Creating Example Backend for Cars Rental using Express J
 | `id`      | `string` | **Required**. Id of cars to fetch |
 
 #### Response Success
-```http
+```
   Status Code: 200
   {
      status: "OK",
@@ -230,7 +232,7 @@ Challenge 5 Binar is an Creating Example Backend for Cars Rental using Express J
 ```
 #### Response Failed
 
-```http
+```
   Status Code: 400
   {
      status: "ERROR",
@@ -239,7 +241,7 @@ Challenge 5 Binar is an Creating Example Backend for Cars Rental using Express J
   }
 ```
 
-```http
+```
   Status Code: 500
   {
      error
