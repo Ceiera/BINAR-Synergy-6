@@ -1,13 +1,13 @@
 import { Response, Request } from "express";
 import { DefaultResponse } from "../models/dto/default";
-import { Post } from "../models/entity/posts";
+import { Post } from "../models/entity/post";
 import { PostRequest } from "../models/dto/posts";
 import fs from "fs";
 
 class PostsHandler {
   async createPost(req: Request, res: Response) {
     const payload: PostRequest = req.body;
-    let listPost = JSON.parse(fs.readFileSync("./data/posts.json", "utf-8"));
+    let listPost:Post[] = JSON.parse(fs.readFileSync("./data/posts.json", "utf-8"));
     if (!(payload.title && payload.content && payload.user_id)) {
       const response: DefaultResponse = {
         status: "BAD_REQUEST",
@@ -42,7 +42,7 @@ class PostsHandler {
   }
 
   async getPosts(req: Request, res: Response) {
-    let listPost = JSON.parse(fs.readFileSync("./data/posts.json", "utf-8"));
+    let listPost:Post[] = JSON.parse(fs.readFileSync("./data/posts.json", "utf-8"));
     const response: DefaultResponse = {
       status: "OK",
       message: "Success retrieving data",
@@ -54,7 +54,7 @@ class PostsHandler {
   }
 
   async getPostById(req: Request, res: Response) {
-    let listPost = JSON.parse(fs.readFileSync("./data/posts.json", "utf-8"));
+    let listPost:Post[] = JSON.parse(fs.readFileSync("./data/posts.json", "utf-8"));
     const id: number = Number(req.params.id);
     const response: DefaultResponse = {
       status: "OK",
@@ -67,15 +67,15 @@ class PostsHandler {
   }
 
   async updatePost(req: Request, res: Response) {
-    let listPost = JSON.parse(fs.readFileSync("./data/posts.json", "utf-8"));
-    const id: number = Number(req.params.id);
-    const findId = listPost.findIndex((post: Post) => post.id === id);
+    let listPost:Post[] = JSON.parse(fs.readFileSync("./data/posts.json", "utf-8"));
+    const id: Number = Number(req.params.id);
+    const findId:Number = listPost.findIndex((post: Post) => post.id === id);
     if (findId === -1) {
       const response: DefaultResponse = {
         status: "NOT_FOUND",
         message: "Post not found",
         data: {
-          created_post: null,
+          updated_post: null,
         },
       };
       res.status(404).send(response);
@@ -86,12 +86,12 @@ class PostsHandler {
         status: "BAD_REQUEST",
         message: "Payload cannot be empty",
         data: {
-          created_post: null,
+          updated_post: null,
         },
       };
       res.status(400).send(response);
     }
-    const updatedPost = listPost.filter((post: Post) => {
+    const updatedPost:Post[] = listPost.filter((post: Post) => {
       if (post.id === id) {
         post.title = payload.title;
         post.content = payload.content;
@@ -104,27 +104,27 @@ class PostsHandler {
       status: "OK",
       message: "Post succesfully updated",
       data: {
-        updatedPost: updatedPost,
+        updated_post: updatedPost,
       },
     };
     res.status(200).send(response);
   }
 
   async deletePostById(req: Request, res: Response) {
-    let listPost = JSON.parse(fs.readFileSync("./data/posts.json", "utf-8"));
+    let listPost:Post[] = JSON.parse(fs.readFileSync("./data/posts.json", "utf-8"));
     const id: number = Number(req.params.id);
-    const findId = listPost.findIndex((post: Post) => post.id === id);
+    const findId:number = listPost.findIndex((post: Post) => post.id === id);
     if (findId === -1) {
       const response: DefaultResponse = {
         status: "NOT_FOUND",
         message: "Post not found",
         data: {
-          created_post: null,
+          deleted_post: null,
         },
       };
       res.status(404).send(response);
     }
-    const newPost = listPost.filter((post: Post) => {
+    const newPost:Post[] = listPost.filter((post: Post) => {
       if (post.id !== id) {
         return post;
       }
