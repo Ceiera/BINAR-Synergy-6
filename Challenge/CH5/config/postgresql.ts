@@ -1,8 +1,13 @@
 import knex from 'knex';
 
-const postgresqlInstance = knex({
-  client: 'pg',
-  connection: 'postgres://ocgjqqdm:riBTDlvh1M4yYKDwMIlJ_ObFFXi73ni4@rain.db.elephantsql.com/ocgjqqdm',
+const knexInstance = knex({
+  client: 'postgresql',
+  connection: {
+    host: `${process.env.POSTGRESQL_HOST}`,
+    database: `${process.env.POSTGRESQL_DATABASE}`,
+    user: `${process.env.POSTGRESQL_USER}`,
+    password: `${process.env.POSTGRESQL_PASSWORD}`,
+  },  
 });
 
-export default postgresqlInstance;
+export default knexInstance;
