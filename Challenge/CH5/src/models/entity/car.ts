@@ -2,7 +2,7 @@ import { Model, ModelObject } from 'objection';
 import postgresqlInstance from '../../../config/postgresql';
 
 export class CarEntity extends Model {
-  id?: bigint;
+  id?: number;
   name!: string;
   cost_per_day!: bigint;
   size!: string;

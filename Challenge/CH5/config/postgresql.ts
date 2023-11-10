@@ -1,8 +1,12 @@
 import knex from 'knex';
 
-const postgresqlInstance = knex({
-  client: 'pg',
-  connection: process.env.POSTGRESQL_URI,
+const knexInstance = knex({
+  client: 'postgresql',
+  connection: {
+    database: "db_cars_knex",
+    user: "postgres",
+    password: "fairytail71",
+  },  
 });
 
-export default postgresqlInstance;
+export default knexInstance;

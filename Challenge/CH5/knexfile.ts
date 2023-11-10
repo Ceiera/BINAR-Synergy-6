@@ -6,33 +6,44 @@ dotenv.config();
 const config: { [key: string]: Knex.Config } = {
   development: {
     client: "postgresql",
-    connection: `${process.env.POSTGRESQL_URI}`,
+    connection: {
+      database: "db_cars_knex",
+      user: "postgres",
+      password: "fairytail71",
+    },
   },
 
   staging: {
     client: "postgresql",
-    connection: `${process.env.POSTGRESQL_URI}`,
+    connection: {
+      database: "db_cars_knex",
+      user: "postgres",
+      password: "fairytail71",
+    },
     pool: {
       min: 2,
-      max: 10
+      max: 10,
     },
     migrations: {
-      tableName: "knex_migrations"
-    }
+      tableName: "knex_migrations",
+    },
   },
 
   production: {
     client: "postgresql",
-    connection: `${process.env.POSTGRESQL_URI}`,
+    connection: {
+      database: "db_cars_knex",
+      user: "postgres",
+      password: "fairytail71",
+    },
     pool: {
       min: 2,
-      max: 10
+      max: 10,
     },
     migrations: {
-      tableName: "knex_migrations"
-    }
-  }
-
+      tableName: "knex_migrations",
+    },
+  },
 };
 
 module.exports = config;
