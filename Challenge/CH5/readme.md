@@ -4,7 +4,7 @@
 Challenge 5 Binar is an Creating Example Backend for Cars Rental using Express JS, Knex JS as ORM, POSTGRESQL as Database, and Cloudinary as Storage
 
 ## Entity Relationship Diagram
-![image](s://images2.imgbox.com/19/69/sXag3Sx8_o.png)
+![image](https://images2.imgbox.com/19/69/sXag3Sx8_o.png)
 
 
 
