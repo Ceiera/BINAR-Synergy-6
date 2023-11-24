@@ -63,6 +63,7 @@ class UserHandler {
         message: "Success created data user",
         data: { user: createdUser },
       };
+      return res.status(201).send(response);
     } catch (error: any) {
       const response: DefaultResponse = {
         status: error.name,
@@ -93,6 +94,7 @@ class UserHandler {
         message: "Success updated data user",
         data: { user: updatedUser },
       };
+      return res.status(200).send(response);
     } catch (error: any) {
       const response: DefaultResponse = {
         status: error.name,
@@ -112,8 +114,9 @@ class UserHandler {
       const response: DefaultResponse = {
         status: "OK",
         message: "Success deleted data user",
-        data: { user: deletedUser },
+        data: [],
       };
+      return res.status(200).send(response);
     } catch (error: any) {
       const response: DefaultResponse = {
         status: error.name,

@@ -63,14 +63,19 @@ class UserRepository {
 
   static async updateUser(id: number, user: UserRequest): Promise<User> {
     try {
+      let payload:any;
+      payload.password = user.password;
+      payload.role = user.role;
+      const findUser = await this.getUserById(id);
+      if (findUser.email !== user.email) {
+        payload.email = user.email;
+      }
+      if (findUser.username !== user.username) {
+        payload.username = user.username;
+      }
       const userQuery = await UserEntity.query()
         .where("id", id)
-        .update({
-          username: user.username,
-          email: user.email,
-          password: user.password,
-          role: user.role,
-        })
+        .patch(payload)
         .returning("*");
       const updatedUser = userQuery[0];
       return updatedUser;

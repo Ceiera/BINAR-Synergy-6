@@ -1,0 +1,331 @@
+{
+	"info": {
+		"_postman_id": "7edeb5a4-da67-49eb-a005-cef36da8abb0",
+		"name": "Challenge 6",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22908412"
+	},
+	"item": [
+		{
+			"name": "Cars",
+			"item": [
+				{
+					"name": "All Cars",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Bearer Admin}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/cars",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"cars"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Cars",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Bearer Admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "{{$randomStreetName}}",
+									"type": "text"
+								},
+								{
+									"key": "cost_per_day",
+									"value": "{{$randomInt}}",
+									"type": "text"
+								},
+								{
+									"key": "size",
+									"value": "L",
+									"type": "text"
+								},
+								{
+									"key": "car_picture",
+									"type": "file",
+									"src": "/D:/GIGIH/Talenesia/Progate Leaderboard.PNG"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/api/cars",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"cars"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Cars",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Bearer Admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "{{$randomStreetName}}",
+									"type": "text"
+								},
+								{
+									"key": "cost_per_day",
+									"value": "{{$randomInt}}",
+									"type": "text"
+								},
+								{
+									"key": "size",
+									"value": "L",
+									"type": "text"
+								},
+								{
+									"key": "car_picture",
+									"type": "file",
+									"src": "/D:/GIGIH/Talenesia/Progate Leaderboard.PNG"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/api/cars/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"cars",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Cars By Id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Bearer Admin}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/cars/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"cars",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"superadmin@gmail.com\",\r\n    \"password\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/login",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Current User",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer Token",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/current-user",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"current-user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Bearer SuperAdmin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": {{$randomUserName}},\r\n    \"email\": {{$randomEmail}},\r\n    \"password\": \"12345678\",\r\n    \"role\": \"ADMIN\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/users",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit User",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Bearer SuperAdmin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": {{$randomUserName}},\r\n    \"email\": {{$randomEmail}},\r\n    \"password\": \"12345678902\",\r\n    \"role\": \"ADMIN\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/users/6",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Bearer SuperAdmin}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/users/6",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

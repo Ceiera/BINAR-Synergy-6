@@ -30,6 +30,7 @@ class CarsRepository {
         size: car.size,
         car_picture_url: car.car_picture_url,
         created_by: adminId,
+        created_at: date,
       });
       return newCar;
     } catch (error) {

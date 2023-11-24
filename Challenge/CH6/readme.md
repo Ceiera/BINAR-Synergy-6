@@ -1,7 +1,7 @@
 
-# Binar Challenge 5
+# Binar Challenge 6
 
-Challenge 5 Binar is an Creating Example Backend for Cars Rental using Express JS, Knex JS as ORM, POSTGRESQL as Database, and Cloudinary as Storage
+Challenge 6 Binar is an Creating Example Backend for Cars Rental using Express JS, Knex JS as ORM, POSTGRESQL as Database, and Cloudinary as Storage
 
 ## Entity Relationship Diagram
 ![image](https://images2.imgbox.com/19/69/sXag3Sx8_o.png)
@@ -266,6 +266,8 @@ To run this project, you will need to add the following environment variables to
 `POSTGRESQL_USER` 
 `POSTGRESQL_PASSWORD`
 
+## Documentation
+[POSTMAN API](https://documenter.getpostman.com/view/22908412/2s9YeD8DHn)
 
 ## Installation
 
