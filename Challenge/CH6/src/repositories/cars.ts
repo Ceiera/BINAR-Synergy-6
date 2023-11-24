@@ -21,30 +21,45 @@ class CarsRepository {
     }
   }
 
-  static async createCar(car: CarRequest): Promise<Car> {
-    const newCar = await CarEntity.query().insert({
-      name: car.name,
-      cost_per_day: car.cost_per_day,
-      size: car.size,
-      car_picture_url: car.car_picture_url,
-      created_by: car.created_by,
-    });
-    return newCar;
+  static async createCar(adminId: number, car: CarRequest): Promise<Car> {
+    try {
+      const date = new Date();
+      const newCar = await CarEntity.query().insert({
+        name: car.name,
+        cost_per_day: car.cost_per_day,
+        size: car.size,
+        car_picture_url: car.car_picture_url,
+        created_by: adminId,
+      });
+      return newCar;
+    } catch (error) {
+      throw error;
+    }
   }
 
-  static async updateCar(id: number, car: CarRequest): Promise<Car | null> {
-    const updatedCar = await CarEntity.query().where("id", id).update({
-      name: car.name,
-      cost_per_day: car.cost_per_day,
-      size: car.size,
-      car_picture_url: car.car_picture_url,
-      updated_by: car.updated_by,
-    });
-    const newData = this.getCarById(id);
-    return newData;
+  static async updateCar(
+    adminId: number,
+    id: number,
+    car: CarRequest
+  ): Promise<Car | null> {
+    try {
+      const date = new Date();
+      const updatedCar = await CarEntity.query().where("id", id).update({
+        name: car.name,
+        cost_per_day: car.cost_per_day,
+        size: car.size,
+        car_picture_url: car.car_picture_url,
+        updated_at: date,
+        updated_by: adminId,
+      });
+      const newData = this.getCarById(id);
+      return newData;
+    } catch (error) {
+      throw error;
+    }
   }
 
-  static async deleteCar(id: number): Promise<string> {
+  static async deleteCar(adminId: number, id: number): Promise<string> {
     try {
       const findCar = this.getCarById(id);
       if (!findCar) {
@@ -52,6 +67,7 @@ class CarsRepository {
       }
       const date = new Date();
       const deletedCar = await CarEntity.query().where("id", id).update({
+        deleted_by: adminId,
         deleted_at: date,
       });
       return "Success";

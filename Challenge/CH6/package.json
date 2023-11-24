@@ -35,7 +35,9 @@
     "dev": "ts-node-dev src/index.ts",
     "migrate": "knex migrate:latest",
     "migrate:up": "knex migrate:up",
+    "migrate:down": "knex migrate:down",
     "migrate:rollback": "knex migrate:rollback",
-    "migrate:rollback:all": "knex migrate:rollback --all"
+    "migrate:rollback:all": "knex migrate:rollback --all",
+    "seed": "knex seed:run --knexfile ./knexfile.ts"
   }
 }

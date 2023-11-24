@@ -72,4 +72,57 @@ class UserHandler {
       return res.status(error.statusCode || 500).send(response);
     }
   }
+  async updateUserById(req: Request, res: Response): Promise<any> {
+    try {
+      const id: number = parseInt(req.params.id);
+      if (id === null) {
+        throw new BadRequestError("user Id Params required");
+      }
+      const user: UserRequest = {
+        username: req.body.username,
+        email: req.body.email,
+        password: req.body.password,
+        role: req.body.role,
+      };
+      if (!(user.email && user.password && user.password && user.role)) {
+        throw new BadRequestError("Missing Field");
+      }
+      const updatedUser = await UserService.updateUser(id, user);
+      const response: DefaultResponse = {
+        status: "OK",
+        message: "Success updated data user",
+        data: { user: updatedUser },
+      };
+    } catch (error: any) {
+      const response: DefaultResponse = {
+        status: error.name,
+        message: error.message,
+        data: [],
+      };
+      return res.status(error.statusCode || 500).send(response);
+    }
+  }
+  async deleteUserById(req: Request, res: Response): Promise<any> {
+    try {
+      const id: number = parseInt(req.params.id);
+      if (id === null) {
+        throw new BadRequestError("user Id Params required");
+      }
+      const deletedUser = await UserService.deleteUser(id);
+      const response: DefaultResponse = {
+        status: "OK",
+        message: "Success deleted data user",
+        data: { user: deletedUser },
+      };
+    } catch (error: any) {
+      const response: DefaultResponse = {
+        status: error.name,
+        message: error.message,
+        data: [],
+      };
+      return res.status(error.statusCode || 500).send(response);
+    }
+  }
 }
+
+export default UserHandler;

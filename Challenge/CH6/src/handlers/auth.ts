@@ -1,23 +1,17 @@
 import AuthService from "../services/auth";
 import { AuthRequest } from "../models/dto/auth";
 import { Request, Response } from "express";
-import { isErrorType } from "../utils/checker";
 import { DefaultResponse } from "../models/dto/default";
-import { UserRequest } from "../models/dto/user";
-import jwt from "jsonwebtoken";
 import UserService from "../services/users";
 import { User } from "../models/entity/user";
+import { BadRequestError } from "../utils/errorclass";
 
 class AuthHandler {
   async login(req: Request, res: Response) {
     try {
       const { email, password } = req.body;
       if (!(email && password)) {
-        return res.status(400).send({
-          status: "ERROR",
-          message: "Email and password are required",
-          data: [],
-        });
+        throw new BadRequestError("Missing Field");
       }
       const payload: AuthRequest = {
         email: email,
@@ -25,36 +19,38 @@ class AuthHandler {
       };
       const token = await AuthService.login(payload);
       return res.status(200).send({
-        status: "SUCCESS",
+        status: "OK",
         message: "Login success",
         data: {
-          token: "Bearer "+token,
+          token: "Bearer " + token,
         },
       });
     } catch (error: any) {
-      return res.status(500).send({
-        status: "ERROR",
+      const response: DefaultResponse = {
+        status: error.name,
         message: error.message,
         data: [],
-      });
+      };
+      return res.status(error.statusCode || 500).send(response);
     }
   }
   async currentUser(req: Request, res: Response) {
     try {
-      const user:User = await UserService.getUserById(req.user.id||0);
+      const user: User = await UserService.getUserById(req.user.id || 0);
       return res.status(200).send({
-        status: "SUCCESS",
+        status: "OK",
         message: "Current user",
         data: {
-          current_user: user
-        }
-      })
-    } catch (error:any) {
-      return res.status(500).send({
-        status: "ERROR",
+          current_user: user,
+        },
+      });
+    } catch (error: any) {
+      const response: DefaultResponse = {
+        status: error.name,
         message: error.message,
-        data: []
-      })
+        data: [],
+      };
+      return res.status(error.statusCode || 500).send(response);
     }
   }
 }

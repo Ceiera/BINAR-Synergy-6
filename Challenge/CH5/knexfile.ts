@@ -7,20 +7,18 @@ const config: { [key: string]: Knex.Config } = {
   development: {
     client: "postgresql",
     connection: {
-      host: `${process.env.POSTGRESQL_HOST}`,
-      database: `${process.env.POSTGRESQL_DATABASE}`,
-      user: `${process.env.POSTGRESQL_USER}`,
-      password: `${process.env.POSTGRESQL_PASSWORD}`,
+      database: `binarch5`,
+      user: `postgres`,
+      password: `fairytail71`,
     },
   },
 
   staging: {
     client: "postgresql",
     connection: {
-      host: `${process.env.POSTGRESQL_HOST}`,
-      database: `${process.env.POSTGRESQL_DATABASE}`,
-      user: `${process.env.POSTGRESQL_USER}`,
-      password: `${process.env.POSTGRESQL_PASSWORD}`,
+      database: `binarch5`,
+      user: `postgres`,
+      password: `fairytail71`,
     },
     pool: {
       min: 2,
@@ -34,10 +32,9 @@ const config: { [key: string]: Knex.Config } = {
   production: {
     client: "postgresql",
     connection: {
-      host: `${process.env.POSTGRESQL_HOST}`,
-      database: `${process.env.POSTGRESQL_DATABASE}`,
-      user: `${process.env.POSTGRESQL_USER}`,
-      password: `${process.env.POSTGRESQL_PASSWORD}`,
+      database: `binarch5`,
+      user: `postgres`,
+      password: `fairytail71`,
     },
     pool: {
       min: 2,

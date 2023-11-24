@@ -10,18 +10,12 @@ export async function up(knex: Knex): Promise<void> {
     table
       .bigInteger("created_by")
       .notNullable()
-      .references("id")
-      .inTable("users");
     table
       .bigInteger("updated_by")
       .nullable()
-      .references("id")
-      .inTable("users");
     table
       .bigInteger("deleted_by")
       .nullable()
-      .references("id")
-      .inTable("users");
     table.timestamp("created_at").notNullable();
     table.timestamp("updated_at").nullable();
     table.timestamp("deleted_at").nullable();
