@@ -4,7 +4,7 @@ interface AuthRequest {
 }
 
 interface AuthResponse {
-  token: string;
+  token: String;
 }
 
 export { AuthRequest, AuthResponse };

@@ -5,9 +5,8 @@ interface DefaultResponse {
 }
 
 interface ErrorResponse {
-  status: string;
+  httpCode: number;
   message: string;
-  data: any;
 }
 
 export { DefaultResponse, ErrorResponse };
