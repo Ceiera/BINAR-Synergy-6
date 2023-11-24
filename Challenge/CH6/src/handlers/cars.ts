@@ -31,8 +31,8 @@ class CarsHandler {
         };
         return res.status(400).send(response);
       }
-      const cars: Car[] = await CarsService.getCarById(id);
-      if (cars.length === 0) {
+      const cars: Car = await CarsService.getCarById(id);
+      if (!cars) {
         const response: DefaultResponse = {
           status: "ERROR",
           message: "Failed retrived data cars",
@@ -79,7 +79,7 @@ class CarsHandler {
         };
         return res.status(400).send(response);
       }
-      const newCar: Car = await CarsService.createCar(payload);
+      const newCar: Car = await CarsService.createCar(req.user.id||0, payload);
 
       const response: DefaultResponse = {
         status: "OK",
@@ -119,7 +119,7 @@ class CarsHandler {
         };
         return res.status(400).send(response);
       }
-      const newCar: Car[] | null = await CarsService.updateCar(id, payload);
+      const newCar: Car | null = await CarsService.updateCar(req.user.id||0, id, payload);
 
       const response: DefaultResponse = {
         status: "OK",
@@ -164,7 +164,7 @@ class CarsHandler {
   async deleteCar(req: Request, res: Response): Promise<any> {
     try {
       const id = parseInt(req.params.id);
-      const deletedCar = await CarsService.deleteCar(id);
+      const deletedCar = await CarsService.deleteCar(req.user.id||0, id);
       if (deletedCar === "Failed") {
         const response: DefaultResponse = {
           status: "ERROR",
