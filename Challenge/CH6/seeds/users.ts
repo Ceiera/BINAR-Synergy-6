@@ -10,7 +10,7 @@ export async function seed(knex: Knex): Promise<void> {
     {
       username: "superadmin",
       email: "superadmin@gmail.com",
-      password: password,
+      password: "12345678",
       role: "SUPERADMIN",
     },
   ]);
