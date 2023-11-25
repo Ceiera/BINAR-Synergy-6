@@ -8,9 +8,22 @@ Challenge 6 Binar is an Creating Example Backend for Cars Rental using Express J
 
 
 
+## Documentation
+[POSTMAN API](https://documenter.getpostman.com/view/22908412/2s9YeD8DHn)
 
+
+## SEEDER
+```
+email: superadmin@gmail.com
+password: 12345678
+```
 
 ## API Reference
+
+### CARS API
+```
+Authorization: Bearer Admin
+```
 
 ### GET all cars
 
@@ -250,6 +263,18 @@ Challenge 6 Binar is an Creating Example Backend for Cars Rental using Express J
 
 
 
+### User API
+
+For GET Method minimum
+```
+Authorization: Bearer Admin
+```
+
+For POST, PATCH, DELETE
+```
+Authorization : Beared Superadmin
+```
+
 
 
 
@@ -266,8 +291,7 @@ To run this project, you will need to add the following environment variables to
 `POSTGRESQL_USER` 
 `POSTGRESQL_PASSWORD`
 
-## Documentation
-[POSTMAN API](https://documenter.getpostman.com/view/22908412/2s9YeD8DHn)
+
 
 ## Installation
 
