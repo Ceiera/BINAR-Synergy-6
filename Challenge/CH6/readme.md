@@ -275,8 +275,45 @@ For POST, PATCH, DELETE
 Authorization : Beared Superadmin
 ```
 
+### GET ALL USER
+
+```
+{{host}}/api/users
+```
+
+### POST CREATE USER
+
+```
+{{host}}/api/users
+```
+
+| Body | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `username`      | `string` | **Required**. username of users to fetch |
+| `email`      | `string` | **Required**. email of users to fetch |
+| `password`      | `string` | **Required**. password of users to fetch |
+| `role`      | `string` | **Required**. role of users (ADMIN/SUPERADMIN) to fetch |
 
 
+### PATCH UPDATE USER BY ID
+
+```
+{{host}}/api/users/:id
+```
+
+| Body | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `username`      | `string` | **Required**. username of users to fetch | must different 
+| `email`      | `string` | **Required**. email of users to fetch | must different
+| `password`      | `string` | **Required**. password of users to fetch |
+| `role`      | `string` | **Required**. role of users (ADMIN/SUPERADMIN) to fetch |
+
+
+### DELETE USER BY ID
+
+```
+{{host}}/api/users/id
+```
 
 
 ## Environment Variables
