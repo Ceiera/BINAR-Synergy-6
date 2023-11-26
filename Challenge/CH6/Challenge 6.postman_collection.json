@@ -31,7 +31,118 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Invalid JWT Cars",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{Bearer Admin}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/api/cars",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"cars"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"status\": \"JsonWebTokenError\",\r\n    \"message\": \"jwt malformed\",\r\n    \"data\": []\r\n}"
+						},
+						{
+							"name": "Token Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXNzdCIsImVtYWlsIjoiQW51QGdtYWlsLmNvbSIsInJvbGUiOiJNRU1CRVIiLCJpYXQiOjE3MDA5NTQ5OTh9.QNbZQrZQOgkbO8qQ5G8VSi4cn9wBYjQ02UmsfQhZkE4",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/api/cars",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"cars"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"status\": \"UNAUTHORIZED\",\r\n    \"message\": \"Access token not found\",\r\n    \"data\": []\r\n}"
+						},
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXNzdCIsImVtYWlsIjoiQW51QGdtYWlsLmNvbSIsInJvbGUiOiJNRU1CRVIiLCJpYXQiOjE3MDA5NTQ5OTh9.QNbZQrZQOgkbO8qQ5G8VSi4cn9wBYjQ02UmsfQhZkE4",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/api/cars",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"cars"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"status\": \"UNAUTHORIZED\",\r\n    \"message\": \"User not found\",\r\n    \"data\": []\r\n}"
+						},
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIiLCJ1c2VybmFtZSI6InN1cGVyYWRtaW4iLCJlbWFpbCI6InN1cGVyYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IlNVUEVSQURNSU4iLCJpYXQiOjE3MDA5NTUzNTYsImV4cCI6MTcwMTA0MTc1Nn0.XU2CuulgJt9dn9W9i5mVQYyAkEdZTNIvfyCJ8abvtgk",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/api/cars",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"cars"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"status\": \"OK\",\r\n    \"message\": \"Success retrived data cars\",\r\n    \"data\": [\r\n        {\r\n            \"id\": \"2\",\r\n            \"name\": \"random\",\r\n            \"cost_per_day\": \"88888\",\r\n            \"size\": \"L\",\r\n            \"car_picture_url\": \"https://res.cloudinary.com/dif9omile/image/upload/v1700850732/zazmtfso0dbvdaob64jj.png\",\r\n            \"created_by\": \"2\",\r\n            \"updated_by\": null,\r\n            \"deleted_by\": null,\r\n            \"created_at\": \"2023-11-24T18:32:06.452Z\",\r\n            \"updated_at\": null,\r\n            \"deleted_at\": null\r\n        },\r\n        {\r\n            \"id\": \"1\",\r\n            \"name\": \"randoms\",\r\n            \"cost_per_day\": \"88888\",\r\n            \"size\": \"L\",\r\n            \"car_picture_url\": \"https://res.cloudinary.com/dif9omile/image/upload/v1700850829/ay5ihcoqnyyircyxzugq.png\",\r\n            \"created_by\": \"2\",\r\n            \"updated_by\": \"2\",\r\n            \"deleted_by\": \"2\",\r\n            \"created_at\": \"2023-11-24T18:30:24.431Z\",\r\n            \"updated_at\": \"2023-11-24T18:33:42.709Z\",\r\n            \"deleted_at\": \"2023-11-24T18:34:22.954Z\"\r\n        }\r\n    ]\r\n}"
+						}
+					]
 				},
 				{
 					"name": "Create Cars",
@@ -80,7 +191,218 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Invalid JWT Cars",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{Bearer Admin}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "{{$randomStreetName}}",
+											"type": "text"
+										},
+										{
+											"key": "cost_per_day",
+											"value": "{{$randomInt}}",
+											"type": "text"
+										},
+										{
+											"key": "size",
+											"value": "L",
+											"type": "text"
+										},
+										{
+											"key": "car_picture",
+											"type": "file",
+											"src": "/D:/GIGIH/Talenesia/Progate Leaderboard.PNG"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}/api/cars",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"cars"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"status\": \"JsonWebTokenError\",\r\n    \"message\": \"jwt malformed\",\r\n    \"data\": []\r\n}"
+						},
+						{
+							"name": "Token Not Found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "asdasdad",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "{{$randomStreetName}}",
+											"type": "text"
+										},
+										{
+											"key": "cost_per_day",
+											"value": "{{$randomInt}}",
+											"type": "text"
+										},
+										{
+											"key": "size",
+											"value": "L",
+											"type": "text"
+										},
+										{
+											"key": "car_picture",
+											"type": "file",
+											"src": "/D:/GIGIH/Talenesia/Progate Leaderboard.PNG"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}/api/cars",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"cars"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"status\": \"UNAUTHORIZED\",\r\n    \"message\": \"Access token not found\",\r\n    \"data\": []\r\n}"
+						},
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXNzdCIsImVtYWlsIjoiQW51QGdtYWlsLmNvbSIsInJvbGUiOiJNRU1CRVIiLCJpYXQiOjE3MDA5NTQ5OTh9.QNbZQrZQOgkbO8qQ5G8VSi4cn9wBYjQ02UmsfQhZkE4",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "{{$randomStreetName}}",
+											"type": "text"
+										},
+										{
+											"key": "cost_per_day",
+											"value": "{{$randomInt}}",
+											"type": "text"
+										},
+										{
+											"key": "size",
+											"value": "L",
+											"type": "text"
+										},
+										{
+											"key": "car_picture",
+											"type": "file",
+											"src": "/D:/GIGIH/Talenesia/Progate Leaderboard.PNG"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}/api/cars",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"cars"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"status\": \"UNAUTHORIZED\",\r\n    \"message\": \"User not found\",\r\n    \"data\": []\r\n}"
+						},
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIiLCJ1c2VybmFtZSI6InN1cGVyYWRtaW4iLCJlbWFpbCI6InN1cGVyYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IlNVUEVSQURNSU4iLCJpYXQiOjE3MDA5NTUzNTYsImV4cCI6MTcwMTA0MTc1Nn0.XU2CuulgJt9dn9W9i5mVQYyAkEdZTNIvfyCJ8abvtgk",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "{{$randomStreetName}}",
+											"type": "text"
+										},
+										{
+											"key": "cost_per_day",
+											"value": "{{$randomInt}}",
+											"type": "text"
+										},
+										{
+											"key": "size",
+											"value": "L",
+											"type": "text"
+										},
+										{
+											"key": "car_picture",
+											"type": "file",
+											"src": "/D:/GIGIH/Talenesia/Progate Leaderboard.PNG"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}/api/cars",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"cars"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"status\": \"OK\",\r\n    \"message\": \"Success create data cars\",\r\n    \"data\": {\r\n        \"name\": \"Halvorson Lake\",\r\n        \"cost_per_day\": \"805\",\r\n        \"size\": \"L\",\r\n        \"car_picture_url\": \"https://res.cloudinary.com/dif9omile/image/upload/v1700955506/yvunl8cvs14mcwcbh6kd.png\",\r\n        \"created_by\": \"2\",\r\n        \"created_at\": \"2023-11-25T23:38:27.074Z\",\r\n        \"id\": \"3\"\r\n    }\r\n}"
+						}
+					]
 				},
 				{
 					"name": "Edit Cars",
@@ -130,7 +452,221 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Invalid JWT Cars",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{Bearer Admin}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "{{$randomStreetName}}",
+											"type": "text"
+										},
+										{
+											"key": "cost_per_day",
+											"value": "{{$randomInt}}",
+											"type": "text"
+										},
+										{
+											"key": "size",
+											"value": "L",
+											"type": "text"
+										},
+										{
+											"key": "car_picture",
+											"type": "file",
+											"src": "/D:/GIGIH/Talenesia/Progate Leaderboard.PNG"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}/api/cars/1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"cars",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"status\": \"JsonWebTokenError\",\r\n    \"message\": \"jwt malformed\",\r\n    \"data\": []\r\n}"
+						},
+						{
+							"name": "Token Not Found",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXNzdCIsImVtYWlsIjoiQW51QGdtYWlsLmNvbSIsInJvbGUiOiJNRU1CRVIiLCJpYXQiOjE3MDA5NTQ5OTh9.QNbZQrZQOgkbO8qQ5G8VSi4cn9wBYjQ02UmsfQhZkE4",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "{{$randomStreetName}}",
+											"type": "text"
+										},
+										{
+											"key": "cost_per_day",
+											"value": "{{$randomInt}}",
+											"type": "text"
+										},
+										{
+											"key": "size",
+											"value": "L",
+											"type": "text"
+										},
+										{
+											"key": "car_picture",
+											"type": "file",
+											"src": "/D:/GIGIH/Talenesia/Progate Leaderboard.PNG"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}/api/cars/1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"cars",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"status\": \"UNAUTHORIZED\",\r\n    \"message\": \"Access token not found\",\r\n    \"data\": []\r\n}"
+						},
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXNzdCIsImVtYWlsIjoiQW51QGdtYWlsLmNvbSIsInJvbGUiOiJNRU1CRVIiLCJpYXQiOjE3MDA5NTQ5OTh9.QNbZQrZQOgkbO8qQ5G8VSi4cn9wBYjQ02UmsfQhZkE4",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "{{$randomStreetName}}",
+											"type": "text"
+										},
+										{
+											"key": "cost_per_day",
+											"value": "{{$randomInt}}",
+											"type": "text"
+										},
+										{
+											"key": "size",
+											"value": "L",
+											"type": "text"
+										},
+										{
+											"key": "car_picture",
+											"type": "file",
+											"src": "/D:/GIGIH/Talenesia/Progate Leaderboard.PNG"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}/api/cars/1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"cars",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"status\": \"UNAUTHORIZED\",\r\n    \"message\": \"User not found\",\r\n    \"data\": []\r\n}"
+						},
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIiLCJ1c2VybmFtZSI6InN1cGVyYWRtaW4iLCJlbWFpbCI6InN1cGVyYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IlNVUEVSQURNSU4iLCJpYXQiOjE3MDA5NTUzNTYsImV4cCI6MTcwMTA0MTc1Nn0.XU2CuulgJt9dn9W9i5mVQYyAkEdZTNIvfyCJ8abvtgk",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "{{$randomStreetName}}",
+											"type": "text"
+										},
+										{
+											"key": "cost_per_day",
+											"value": "{{$randomInt}}",
+											"type": "text"
+										},
+										{
+											"key": "size",
+											"value": "L",
+											"type": "text"
+										},
+										{
+											"key": "car_picture",
+											"type": "file",
+											"src": "/D:/GIGIH/Talenesia/Progate Leaderboard.PNG"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}/api/cars",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"cars"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"status\": \"OK\",\r\n    \"message\": \"Success create data cars\",\r\n    \"data\": {\r\n        \"name\": \"Halvorson Lake\",\r\n        \"cost_per_day\": \"805\",\r\n        \"size\": \"L\",\r\n        \"car_picture_url\": \"https://res.cloudinary.com/dif9omile/image/upload/v1700955506/yvunl8cvs14mcwcbh6kd.png\",\r\n        \"created_by\": \"2\",\r\n        \"created_at\": \"2023-11-25T23:38:27.074Z\",\r\n        \"id\": \"3\"\r\n    }\r\n}"
+						}
+					]
 				},
 				{
 					"name": "Delete Cars By Id",
@@ -155,7 +691,122 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Invalid JWT Cars",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{Bearer Admin}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/api/cars/1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"cars",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"status\": \"JsonWebTokenError\",\r\n    \"message\": \"jwt malformed\",\r\n    \"data\": []\r\n}"
+						},
+						{
+							"name": "Token Not Found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXNzdCIsImVtYWlsIjoiQW51QGdtYWlsLmNvbSIsInJvbGUiOiJNRU1CRVIiLCJpYXQiOjE3MDA5NTQ5OTh9.QNbZQrZQOgkbO8qQ5G8VSi4cn9wBYjQ02UmsfQhZkE4",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/api/cars/1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"cars",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"status\": \"UNAUTHORIZED\",\r\n    \"message\": \"Access token not found\",\r\n    \"data\": []\r\n}"
+						},
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXNzdCIsImVtYWlsIjoiQW51QGdtYWlsLmNvbSIsInJvbGUiOiJNRU1CRVIiLCJpYXQiOjE3MDA5NTQ5OTh9.QNbZQrZQOgkbO8qQ5G8VSi4cn9wBYjQ02UmsfQhZkE4",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/api/cars/1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"cars",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"status\": \"UNAUTHORIZED\",\r\n    \"message\": \"User not found\",\r\n    \"data\": []\r\n}"
+						},
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIiLCJ1c2VybmFtZSI6InN1cGVyYWRtaW4iLCJlbWFpbCI6InN1cGVyYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IlNVUEVSQURNSU4iLCJpYXQiOjE3MDA5NTUzNTYsImV4cCI6MTcwMTA0MTc1Nn0.XU2CuulgJt9dn9W9i5mVQYyAkEdZTNIvfyCJ8abvtgk",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/api/cars/1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"cars",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"status\": \"OK\",\r\n    \"message\": \"Success delete data cars\",\r\n    \"data\": []\r\n}"
+						}
+					]
 				}
 			]
 		},
@@ -187,7 +838,221 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"superadmin@gmail.com\",\r\n    \"password\": \"12345678\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/login",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"login"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Missing Field",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/login",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"login"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "60"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3c-BHCMNipZ/5zaKkOk7tKhaoi/vjY\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 25 Nov 2023 23:40:46 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"BAD_REQUEST\",\n    \"message\": \"Missing Field\",\n    \"data\": []\n}"
+						},
+						{
+							"name": "User Not Found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"superadmin2@gmail.com\",\r\n    \"password\": \"12345678\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/login",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"login"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "55"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"37-m8AjNpG0Ocn6xGr58MxLr3IQdnE\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 25 Nov 2023 23:41:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"NOT_FOUND\",\n    \"message\": \"User not found\",\n    \"data\": []\n}"
+						},
+						{
+							"name": "Wrong Password",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"superadmin@gmail.com\",\r\n    \"password\": \"123456789\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/login",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"login"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "76"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4c-HiGoGKJA0Gs+Bvy+AdPn77X/8WQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 25 Nov 2023 23:44:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"BAD_REQUEST\",\n    \"message\": \"Username or password is wrong\",\n    \"data\": []\n}"
+						}
+					]
 				},
 				{
 					"name": "Current User",
@@ -211,7 +1076,93 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Invalid JWT",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer Token",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/api/current-user",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"current-user"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"status\": \"JsonWebTokenError\",\r\n    \"message\": \"jwt malformed\",\r\n    \"data\": []\r\n}"
+						},
+						{
+							"name": "Current User Super Admin",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{Bearer SuperAdmin}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/api/current-user",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"current-user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"status\": \"OK\",\r\n    \"message\": \"Current user\",\r\n    \"data\": {\r\n        \"current_user\": {\r\n            \"id\": \"2\",\r\n            \"username\": \"superadmin\",\r\n            \"email\": \"superadmin@gmail.com\",\r\n            \"password\": \"$2b$10$arimcLUmVKFuL70S4NgVpur3/OQ40TJTnXugY7eIfi0xydHe0wcgW\",\r\n            \"role\": \"SUPERADMIN\"\r\n        }\r\n    }\r\n}"
+						},
+						{
+							"name": "Current User Admin",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{Bearer Admin}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/api/current-user",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"current-user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"status\": \"OK\",\r\n    \"message\": \"Current user\",\r\n    \"data\": {\r\n        \"current_user\": {\r\n            \"id\": \"2\",\r\n            \"username\": \"superadmin\",\r\n            \"email\": \"superadmin@gmail.com\",\r\n            \"password\": \"$2b$10$arimcLUmVKFuL70S4NgVpur3/OQ40TJTnXugY7eIfi0xydHe0wcgW\",\r\n            \"role\": \"SUPERADMIN\"\r\n        }\r\n    }\r\n}"
+						}
+					]
 				},
 				{
 					"name": "Create User",
@@ -226,7 +1177,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": {{$randomUserName}},\r\n    \"email\": {{$randomEmail}},\r\n    \"password\": \"12345678\",\r\n    \"role\": \"ADMIN\"\r\n}",
+							"raw": "{\r\n    \"username\": \"{{$randomUserName}}\",\r\n    \"email\": \"{{$randomEmail}}\",\r\n    \"password\": \"12345678\",\r\n    \"role\": \"ADMIN\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -244,7 +1195,209 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{Bearer SuperAdmin}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"{{$randomUserName}}\",\r\n    \"email\": \"{{$randomEmail}}\",\r\n    \"password\": \"12345678\",\r\n    \"role\": \"ADMIN\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/users",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "236"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"ec-RMclIcd6a3GBZvQgaPGMtqboWcQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 25 Nov 2023 23:50:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"OK\",\n    \"message\": \"Success created data user\",\n    \"data\": {\n        \"user\": {\n            \"username\": \"Gene_Ferry32\",\n            \"email\": \"Jacinto.Gutkowski96@yahoo.com\",\n            \"password\": \"$2b$10$NkNAou1eQvYAfOy8VTu4a.bo/UnLKye0IrR3um6SU9Zcs302ccmBy\",\n            \"role\": \"ADMIN\",\n            \"id\": \"13\"\n        }\n    }\n}"
+						},
+						{
+							"name": "Missing Field",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{Bearer SuperAdmin}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/users",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "60"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3c-BHCMNipZ/5zaKkOk7tKhaoi/vjY\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 25 Nov 2023 23:51:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"BAD_REQUEST\",\n    \"message\": \"Missing Field\",\n    \"data\": []\n}"
+						},
+						{
+							"name": "Forbidden",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{Bearer Admin}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"{{$randomUserName}}\",\r\n    \"email\": \"{{$randomEmail}}\",\r\n    \"password\": \"12345678\",\r\n    \"role\": \"ADMIN\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/users",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "88"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"58-Ol79SLw3l0tIwB+XHHfqK48Wz1Y\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 25 Nov 2023 23:52:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"FORBIDDEN\",\n    \"message\": \"You are not allowed to access this resource\",\n    \"data\": []\n}"
+						}
+					]
 				},
 				{
 					"name": "Edit User",
@@ -259,7 +1412,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": {{$randomUserName}},\r\n    \"email\": {{$randomEmail}},\r\n    \"password\": \"12345678902\",\r\n    \"role\": \"ADMIN\"\r\n}",
+							"raw": "{\r\n    \"username\": \"{{$randomUserName}}\",\r\n    \"email\": \"{{$randomEmail}}\",\r\n    \"password\": \"12345678902\",\r\n    \"role\": \"ADMIN\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -278,7 +1431,251 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{Bearer SuperAdmin}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"{{$randomUserName}}\",\r\n    \"email\": \"{{$randomEmail}}\",\r\n    \"password\": \"12345678902\",\r\n    \"role\": \"ADMIN\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/users/13",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"13"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"status\": \"OK\",\r\n    \"message\": \"Success created data user\",\r\n    \"data\": {\r\n        \"user\": {\r\n            \"username\": \"Gene_Ferry32\",\r\n            \"email\": \"Jacinto.Gutkowski96@yahoo.com\",\r\n            \"password\": \"$2b$10$NkNAou1eQvYAfOy8VTu4a.bo/UnLKye0IrR3um6SU9Zcs302ccmBy\",\r\n            \"role\": \"ADMIN\",\r\n            \"id\": \"13\"\r\n        }\r\n    }\r\n}"
+						},
+						{
+							"name": "Forbidden",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{Bearer Admin}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"role\": \"ADMIN\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/users/6",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"6"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "88"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"58-Ol79SLw3l0tIwB+XHHfqK48Wz1Y\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 25 Nov 2023 23:56:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"FORBIDDEN\",\n    \"message\": \"You are not allowed to access this resource\",\n    \"data\": []\n}"
+						},
+						{
+							"name": "User Not Found",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{Bearer SuperAdmin}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"{{$randomUserName}}\",\r\n    \"email\": \"{{$randomEmail}}\",\r\n    \"password\": \"12345678902\",\r\n    \"role\": \"ADMIN\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/users/99",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"99"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "59"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3b-NgxaazqpvdMvF0XoAdFnItMJyLs\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 25 Nov 2023 23:57:40 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"NOT_FOUND\",\n    \"message\": \"User not found\",\n    \"data\": []\n}"
+						},
+						{
+							"name": "Missing Field",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{Bearer SuperAdmin}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"{{$randomUserName}}\"\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/users/16",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"16"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "60"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3c-BHCMNipZ/5zaKkOk7tKhaoi/vjY\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 26 Nov 2023 00:01:40 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"BAD_REQUEST\",\n    \"message\": \"Missing Field\",\n    \"data\": []\n}"
+						}
+					]
 				},
 				{
 					"name": "Delete User",
@@ -303,7 +1700,185 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "User Not Found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{Bearer SuperAdmin}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/api/users/6",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"6"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "59"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3b-NgxaazqpvdMvF0XoAdFnItMJyLs\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 26 Nov 2023 00:05:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"NOT_FOUND\",\n    \"message\": \"User not found\",\n    \"data\": []\n}"
+						},
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{Bearer SuperAdmin}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/api/users/12",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"12"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "63"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3f-hFHr0bUhKP43RGJqmzAmKIl8TNc\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 26 Nov 2023 00:06:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"OK\",\n    \"message\": \"Success deleted data user\",\n    \"data\": []\n}"
+						},
+						{
+							"name": "Forbidden",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{Bearer Admin}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/api/users/12",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"12"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "88"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"58-Ol79SLw3l0tIwB+XHHfqK48Wz1Y\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 26 Nov 2023 00:06:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"FORBIDDEN\",\n    \"message\": \"You are not allowed to access this resource\",\n    \"data\": []\n}"
+						}
+					]
 				}
 			]
 		}

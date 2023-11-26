@@ -6,17 +6,18 @@ import bcrypt from "bcrypt";
 import UserRepository from "../repositories/users";
 import { User } from "../models/entity/user";
 import { ErrorResponse } from "../models/dto/default";
+import { BadRequestError, NotFoundError } from "../utils/errorclass";
 
 class AuthService {
   static async login(user: AuthRequest): Promise<String> {
     try {
       const findUser = await UserRepository.getUserByEmail(user.email);
       if (!findUser) {
-        throw new Error("User not found");
+        throw new NotFoundError("User not found");
       }
       const match = bcrypt.compareSync(user.password, findUser.password);
       if (!match) {
-        throw new Error("Username of password is wrong");
+        throw new BadRequestError("Username or password is wrong");
       }
       const payload: TokenPayload = {
         id: findUser.id || 0,

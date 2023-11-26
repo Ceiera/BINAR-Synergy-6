@@ -62,12 +62,7 @@ class UserService {
       if (!match) {
         user.password = bcrypt.hashSync(user.password, 10);
       }
-      const updatedUser = await UserRepository.createUser({
-        username: user.username,
-        email: user.email,
-        password: user.password,
-        role: user.role,
-      });
+      const updatedUser = await UserRepository.updateUser(id, user);
       return updatedUser;
     } catch (error) {
       throw error;
