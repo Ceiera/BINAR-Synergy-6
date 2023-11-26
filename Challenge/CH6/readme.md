@@ -20,6 +20,18 @@ password: 12345678
 
 ## API Reference
 
+### LOGIN
+```
+{{host}}/api/login
+```
+
+### CURRENT ME
+
+Need JWT
+```
+{{host}}/api/current-me
+```
+
 ### CARS API
 ```
 Authorization: Bearer Admin
