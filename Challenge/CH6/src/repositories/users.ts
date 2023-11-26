@@ -63,7 +63,7 @@ class UserRepository {
 
   static async updateUser(id: number, user: UserRequest): Promise<User> {
     try {
-      let payload:any;
+      let payload:any = {};
       payload.password = user.password;
       payload.role = user.role;
       const findUser = await this.getUserById(id);
@@ -80,6 +80,7 @@ class UserRepository {
       const updatedUser = userQuery[0];
       return updatedUser;
     } catch (error) {
+      console.log(error)
       throw new InternalServerError("Something went wrong");
     }
   }
