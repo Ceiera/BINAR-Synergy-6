@@ -5,8 +5,8 @@ import AuthMiddleWare from "../middlewares/auth";
 const AuthRouter:Router = express.Router();
 
 const authHandler = new AuthHandler();
-
 AuthRouter.post('/api/login', authHandler.login);
+AuthRouter.post('/api/login/google', authHandler.loginGoogle);
 AuthRouter.get('/api/current-user',  AuthMiddleWare.authenticateAdmin, authHandler.currentUser);
 
 

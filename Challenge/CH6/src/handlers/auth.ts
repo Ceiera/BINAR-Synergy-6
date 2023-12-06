@@ -1,5 +1,5 @@
 import AuthService from "../services/auth";
-import { AuthRequest } from "../models/dto/auth";
+import { AuthGoogle, AuthRequest } from "../models/dto/auth";
 import { Request, Response } from "express";
 import { DefaultResponse } from "../models/dto/default";
 import UserService from "../services/users";
@@ -42,6 +42,33 @@ class AuthHandler {
         message: "Current user",
         data: {
           current_user: user,
+        },
+      });
+    } catch (error: any) {
+      const response: DefaultResponse = {
+        status: error.name,
+        message: error.message,
+        data: [],
+      };
+      return res.status(error.statusCode || 500).send(response);
+    }
+  }
+
+  async loginGoogle(req: Request, res: Response) {
+    try {
+      const auth: AuthGoogle = {
+        credential: req.body.credential,
+        clientId: req.body.clientId,
+      }
+      if (!(auth.credential && auth.clientId)) {
+        throw new BadRequestError("Missing Field");
+      }
+      const token = await AuthService.loginGoogle(auth);
+      return res.status(200).send({
+        status: "OK",
+        message: "Login success",
+        data: {
+          token: "Bearer " + token,
         },
       });
     } catch (error: any) {
