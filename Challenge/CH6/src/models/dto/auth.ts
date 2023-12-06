@@ -7,4 +7,9 @@ interface AuthResponse {
   token: String;
 }
 
-export { AuthRequest, AuthResponse };
+interface AuthGoogle {
+  credential: string;
+  clientId: string;
+}
+
+export { AuthRequest, AuthResponse, AuthGoogle };
