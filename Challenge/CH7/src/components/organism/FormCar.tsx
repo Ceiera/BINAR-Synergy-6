@@ -2,7 +2,7 @@ import { useState, ChangeEvent, useEffect } from "react";
 import { Input, Select, Button } from "antd";
 import FormCarProps from "../../models/props/FormCarProps";
 import CarEntity from "../../models/entity/Car";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const FormCar = ({ id, method }: FormCarProps) => {
   const [carsName, setCarsName] = useState("");
   const [costPerDay, setCostPerDay] = useState("");
@@ -17,6 +17,7 @@ const FormCar = ({ id, method }: FormCarProps) => {
     carPicture: false,
   });
   const editId = id;
+  const navigate = useNavigate();
 
   const getCarsInfo = async (id: number) => {
     const response = await fetch(
@@ -55,7 +56,6 @@ const FormCar = ({ id, method }: FormCarProps) => {
           carsName: false,
         });
       }
-      console.log("|" + e.target.value + "|");
       setCarsName(e.target.value);
     } else if (e.target.id == "cost-per-day") {
       if (e.target.value !== null) {
@@ -140,7 +140,11 @@ const FormCar = ({ id, method }: FormCarProps) => {
           body: formData,
         }
       );
-      const result = await response.json();
+      if (response.status != 200 && response.status != 201) {
+        navigate("/cars", { state: { alert: "error" } });
+      } else {
+        navigate("/cars", { state: { alert: "success" } });
+      }
     }
 
     setButtonLoading(false);
@@ -148,7 +152,7 @@ const FormCar = ({ id, method }: FormCarProps) => {
 
   return (
     <>
-      <div className="flex flex-col justify-between">
+      <div className="flex flex-col justify-between gap-y-6 relative h-full">
         <div className=" bg-neutral-01 p-[1rem] shadow">
           <div className="flex flex-col w-[30rem] justify-between gap-y-4">
             <div className="flex flex-row items-center">
@@ -165,11 +169,12 @@ const FormCar = ({ id, method }: FormCarProps) => {
             </div>
             <div className="flex flex-row items-center">
               <label htmlFor="cost-per-day" className="w-[9rem] text-[0.75rem]">
-                Cost Per Day{" "}
+                Cost Per Day
                 <sup className="text-red-600 text-[0.75rem]">*</sup>
               </label>
               <Input
                 id="cost-per-day"
+                type="number"
                 name="cost-per-day"
                 value={costPerDay}
                 onInput={handleInput}
@@ -204,7 +209,6 @@ const FormCar = ({ id, method }: FormCarProps) => {
                     disabled: true,
                   },
                 ]}
-                onSelect={(nilai) => setSize(nilai)}
                 onChange={(nilai) => setSize(nilai)}
               ></Select>
             </div>
@@ -226,8 +230,7 @@ const FormCar = ({ id, method }: FormCarProps) => {
             )}
           </div>
         </div>
-
-        <div className="action sticky bottom-0">
+        <div className="sticky bottom-0 py-6 action flex flex-row gap-4">
           <Link to="/cars">
             <Button
               type="default"

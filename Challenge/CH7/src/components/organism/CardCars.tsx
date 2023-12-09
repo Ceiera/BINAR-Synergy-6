@@ -5,12 +5,16 @@ import { TrashIcon, PencilIcon } from "@heroicons/react/24/solid";
 import { ClockIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 
-const CardCars = ({ item }: CardCarsProps) => {
+const CardCars = ({ item, onDelete }: CardCarsProps) => {
   const car: CarEntity = item;
   let carDate: string = "No new update";
   if (!car.updated_at) {
     carDate = "Updated at " + new Date(car.created_at!).toLocaleDateString();
   }
+
+  const handleDelete = async () => {
+    onDelete(car.id)
+  };
 
   return (
     <>
@@ -32,11 +36,12 @@ const CardCars = ({ item }: CardCarsProps) => {
             size="large"
             danger
             className="w-full items-center justify-center gap-3 flex flex-row"
+            onClick={handleDelete}
           >
             <TrashIcon className="w-[1.25rem]" />
             <p>Delete</p>
           </Button>
-          <Link to={"/cars/update/" + car.id}>
+          <Link to={"/cars/update/" + car.id} className="w-full">
             <Button
               type="primary"
               size="large"

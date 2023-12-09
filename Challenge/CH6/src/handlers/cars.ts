@@ -9,10 +9,11 @@ class CarsHandler {
   async getAllCars(req: Request, res: Response): Promise<any> {
     try {
       const cars: Car[] = await CarsService.getAllCars();
+      const filteredCar: Car[] = cars.filter((car:Car) => car.deleted_by == null)
       const response: DefaultResponse = {
         status: "OK",
         message: "Success retrived data cars",
-        data: cars,
+        data: filteredCar,
       };
       return res.status(200).send(response);
     } catch (error) {
