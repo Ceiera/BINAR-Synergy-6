@@ -8,6 +8,7 @@ import { User } from "../models/entity/user";
 import { ErrorResponse } from "../models/dto/default";
 import { BadRequestError, NotFoundError } from "../utils/errorclass";
 import { OAuth2Client } from "google-auth-library";
+import UserService from "./users";
 
 class AuthService {
   static async login(user: AuthRequest): Promise<String> {
@@ -52,9 +53,15 @@ class AuthService {
       });
       const {email, name, picture } = userInfo.payload;
 
-      const findUser = await UserRepository.getUserByEmail(email);
+      let findUser = await UserRepository.getUserByEmail(email);
       if (!findUser) {
-        throw new NotFoundError("User not found");
+        const newUser = await UserService.createUser({
+          username: name,
+          email: email,
+          password: "default",
+          role: "ADMIN",
+        })
+        findUser = newUser
       }
       const payload: TokenPayload = {
         id: findUser.id || 0,
