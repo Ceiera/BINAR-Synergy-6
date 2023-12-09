@@ -1,5 +1,5 @@
 # FrontEnd Binar Carlist
-Must clone or pull backend first
+Must clone or pull backend first (I did some minor patch in backend)
 
 ## Backend
 for backend use:
@@ -10,8 +10,16 @@ or
 ## Dont Forget Adjust Env
 
 ## Feature
+### Login using email and pass (for superadmin, kindly check readme backend) 
+### Login OauthGoogle, (if user not exist, user would be created using google info and the password set to "default") 
+### List Cars 
+### Crud Cars 
+### Logout  
 
-Login
-Login OauthGoogle, (if user not exist, user would be created using google info and the password set to "default")
-List Cars
-Crud Cars
+## Stack
+Tailwindcss, HeroIcons, Ant Design, Express, React Vite Typescript
+
+## Suggestion (reminder for me)
+Would be good if i use redux properly
+
+Goodluck my future self
