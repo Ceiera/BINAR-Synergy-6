@@ -1,8 +1,10 @@
 import { useState, ChangeEvent } from "react";
 import { Input, Button, Alert } from "antd";
-import LoginBackground from "../assets/loginbackground.png";
+import LoginBackground from "../../assets/loginbackground.png";
 import { useNavigate } from "react-router-dom";
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
+import { useDispatch } from "react-redux";
+import { saveToken } from "../../redux/slices/token";
 
 interface googleAuth {
   credential?: string;
@@ -16,6 +18,7 @@ const LoginPage = () => {
   const [alertVisible, setAlertVisible] = useState(false);
   const [loginButtonLoading, setLoginButtonLoading] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
@@ -45,6 +48,7 @@ const LoginPage = () => {
     const result = await response.json();
     if (response.status == 200) {
       localStorage.setItem("token", result.data.token);
+      dispatch(saveToken(result.data.token));
       navigate("/cars/add");
     } else {
       setAlertVisible(true);
@@ -57,7 +61,7 @@ const LoginPage = () => {
     const payload = {
       credential: credentialResponse.credential,
       clientId: credentialResponse.clientId,
-    }
+    };
     const response = await fetch(
       import.meta.env.VITE_BACKEND_URL + "api/login/google",
       {
@@ -72,6 +76,7 @@ const LoginPage = () => {
     if (response.status == 200) {
       setLoginButtonLoading(false);
       localStorage.setItem("token", result.data.token);
+      dispatch(saveToken(result.data.token));
       navigate("/cars");
     } else {
       console.log(result);
@@ -85,13 +90,15 @@ const LoginPage = () => {
 
   return (
     <>
-      <div className="flex flex-row gap-x-12">
+      <div className="flex flex-row">
         <div className="w-8/12">
-          <img src={LoginBackground} alt="" />
+          <img src={LoginBackground} className="h-[100vh]" alt="" />
         </div>
-        <div className="w-4/12 flex flex-col place-content-center mr-12 gap-y-8">
-          <div>ini logo</div>
-          <h1 className="text-3xl">Welcome, Admin BCR</h1>
+        <div className="w-4/12 flex flex-col place-content-center px-[3.5rem] gap-y-8">
+          <div>
+            <div className="w-[6.25rem] h-[2.125rem] bg-primary-darkblue01"></div>
+          </div>
+          <h1 className="text-[1.5rem] font-bold">Welcome, Admin BCR</h1>
           <div className="flex flex-col gap-y-4">
             <Alert
               style={{ display: alertVisible ? "flex" : "none" }}
@@ -99,7 +106,9 @@ const LoginPage = () => {
               type="error"
             />
             <div className="input-group">
-              <label htmlFor="email">Email</label>
+              <label htmlFor="email" className="text-[0.875rem]">
+                Email
+              </label>
               <Input
                 placeholder="Contoh: johndee@gmail.com"
                 onChange={handleInput}
@@ -107,7 +116,9 @@ const LoginPage = () => {
               />
             </div>
             <div className="input-group">
-              <label htmlFor="password">Password</label>
+              <label htmlFor="password" className="text-[0.875rem]">
+                Password
+              </label>
               <Input.Password
                 placeholder="6+ Karakter"
                 onChange={handleInput}
@@ -125,7 +136,7 @@ const LoginPage = () => {
           </GoogleOAuthProvider>
 
           <Button
-            className="w-full"
+            className="w-full text-white bg-primary-darkblue04 hover:bg-primary-darkblue03"
             onClick={handleLogin}
             loading={loginButtonLoading}
           >
