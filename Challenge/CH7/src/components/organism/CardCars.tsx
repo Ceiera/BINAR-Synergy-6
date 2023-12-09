@@ -3,6 +3,7 @@ import { Button } from "antd";
 import CardCarsProps from "../../models/props/CardCarsProps";
 import { TrashIcon, PencilIcon } from "@heroicons/react/24/solid";
 import { ClockIcon } from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
 
 const CardCars = ({ item }: CardCarsProps) => {
   const car: CarEntity = item;
@@ -35,14 +36,16 @@ const CardCars = ({ item }: CardCarsProps) => {
             <TrashIcon className="w-[1.25rem]" />
             <p>Delete</p>
           </Button>
-          <Button
-            type="primary"
-            size="large"
-            className="w-full flex flex-row items-center justify-center gap-3 bg-primary-limegreen04 hover:bg-primary-limegreen03"
-          >
-            <PencilIcon className="w-[1.25rem]" />
-            <p>Edit</p>
-          </Button>
+          <Link to={"/cars/update/" + car.id}>
+            <Button
+              type="primary"
+              size="large"
+              className="w-full flex flex-row items-center justify-center gap-3 bg-primary-limegreen04 hover:bg-primary-limegreen03"
+            >
+              <PencilIcon className="w-[1.25rem]" />
+              <p>Edit</p>
+            </Button>
+          </Link>
         </div>
       </div>
     </>

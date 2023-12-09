@@ -9,9 +9,32 @@ import { ChevronRightIcon, PlusIcon } from "@heroicons/react/24/solid";
 import { Button } from "antd";
 import { Link } from "react-router-dom";
 
+interface Page {
+  breadcrumb: {
+    isChilderen: boolean;
+    nameChildren: string;
+  };
+  h3: string;
+  button: {
+    visible: boolean;
+  };
+}
+
 const CarsDashboard = () => {
   const [listCars, setListCars] = useState([]);
   const [renderCars, setRenderCars] = useState([]);
+  const [sideBarDetailVisible, setSideBarDetailVisible] = useState(false);
+  const page:Page= {
+    breadcrumb: {
+      isChilderen: false,
+      nameChildren: "",
+    },
+    h3: "List Cars",
+    button: {
+      visible: true,
+    },
+  }
+
   const sideBarDetail: SideBarDetailEntity = {
     name: "Cars",
     element: [
@@ -21,6 +44,7 @@ const CarsDashboard = () => {
       },
     ],
   };
+
   const getListCars = async () => {
     const response = await fetch(
       import.meta.env.VITE_BACKEND_URL + "api/cars",
@@ -50,30 +74,58 @@ const CarsDashboard = () => {
       setRenderCars(filteredCars);
     }
   };
+  const handleCloseSideBar = () => {
+    setSideBarDetailVisible(!sideBarDetailVisible);
+  };
 
   return (
     <>
       <div className="flex flex-row h-full min-h-[100vh] overflow-hidden">
         <div className="flex flex-row sticky">
           <SideBar />
-          <SideBarDetail item={sideBarDetail} />
+          {sideBarDetailVisible && <SideBarDetail item={sideBarDetail} />}
         </div>
         <div className="content flex flex-col w-full">
-          <Header />
+          <Header closeSideBar={handleCloseSideBar} />
           <div className="main px-[1.5rem] flex flex-col pt-[2rem] bg-primary-darkblue01 gap-y-6 h-full overflow-y-auto">
             <div className="flex flex-row text-[0.75rem]">
               <p className="font-bold text-neutral-05">Cars</p>
               <ChevronRightIcon className="w-5" />
-              <p className="text-neutral-04">List Cars</p>
+              <p
+                className={
+                  page.breadcrumb.isChilderen
+                    ? "font-bold text-neutral-05"
+                    : "text-neutral-04"
+                }
+              >
+                List Cars
+              </p>
+              {page.breadcrumb.isChilderen && (
+                <>
+                  <ChevronRightIcon className="w-5" />
+                  <p className="text-neutral-04">
+                    {page.breadcrumb.nameChildren}
+                  </p>
+                </>
+              )}
             </div>
             <div className="flex flex-row justify-between">
-              <p className="font-bold text-[1.25rem]">List Cars</p>
-              <Link to={"/cars/add"}>
-                <Button className="bg-primary-darkblue04 font-bold flex flex-row place-content-center hover:bg-primary-darkblue03" size="large" type="primary">
-                  <span><PlusIcon className="w-5"/></span>Add New Cars
+              <p className="font-bold text-[1.25rem]">{page.h3}</p>
+
+              <Link to={"/cars/create"}>
+                <Button
+                  className="bg-primary-darkblue04 font-bold flex flex-row place-content-center hover:bg-primary-darkblue03"
+                  size="large"
+                  type="primary"
+                >
+                  <span>
+                    <PlusIcon className="w-5" />
+                  </span>
+                  Add New Cars
                 </Button>
               </Link>
             </div>
+
             <div className="button-filter flex flex-row gap-x-4">
               <Button
                 className="py-[0.5rem] px-[0.75rem] border-primary-darkblue02 bg-neutral-01 text-primary-darkblue02 font-bold hover:bg-primary-darkblue01 hover:border-primary-darkblue04 hover:text-primary-darkblue04"

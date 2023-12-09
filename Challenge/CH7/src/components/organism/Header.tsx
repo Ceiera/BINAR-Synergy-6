@@ -2,9 +2,10 @@ import { Input, Button } from "antd";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import UserEntity from "../../models/entity/User";
 import { useEffect, useState } from "react";
-import { ChevronDownIcon } from "@heroicons/react/24/solid";
+import { ChevronDownIcon, Bars3Icon } from "@heroicons/react/24/solid";
+import HeaderProps from "../../models/props/HeaderProps";
 
-const Header = () => {
+const Header = ({closeSideBar}:HeaderProps) => {
   const [user, setUser] = useState<UserEntity>({
     id: 0,
     username: "admin",
@@ -12,6 +13,10 @@ const Header = () => {
     password: "admin",
     role: "admin",
   });
+
+  const handleCloseSideBar = () => {
+    closeSideBar();
+  }
 
   const getInfoUser = async () => {
     const response = await fetch(
@@ -32,7 +37,9 @@ const Header = () => {
   }, []);
   return (
     <>
-      <div className="header bg-neutral-01 flex flex-row justify-end h-[4.375rem] py-[1rem] gap-x-2 shadow-sm">
+      <div className="header bg-neutral-01 flex flex-row justify-between items-center px-[1.5rem] h-[4.375rem] py-[1rem] shadow-sm">
+        <div className="" onClick={handleCloseSideBar}><Bars3Icon className="h-5 w-5"/></div>
+        <div className="flex flex-row justify-end gap-x-2">
         <div className="search-group flex flex-row">
           <Input
             placeholder="Search"
@@ -57,6 +64,7 @@ const Header = () => {
           </div>
           <div className="">{user.username}</div>
           <ChevronDownIcon className="h-5 w-5" />
+        </div>
         </div>
       </div>
     </>
