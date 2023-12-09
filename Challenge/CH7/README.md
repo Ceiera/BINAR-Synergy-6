@@ -10,11 +10,10 @@ or
 ## Dont Forget Adjust Env
 
 ## Feature
-Login using email and pass (for superadmin, kindly check readme backend)
-Login OauthGoogle, (if user not exist, user would be created using google info and the password set to "default")
-List Cars
-Crud Cars
-Logout
+### Login using email and pass (for superadmin, kindly check readme backend) 
+### Login OauthGoogle, (if user not exist, user would be created using google info and the password set to "default") ### List Cars 
+### Crud Cars 
+### Logout  
 
 ## Stack
 Tailwindcss, HeroIcons, Ant Design, Express, React Vite Typescript
