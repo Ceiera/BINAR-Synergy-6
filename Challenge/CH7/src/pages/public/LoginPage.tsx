@@ -49,7 +49,7 @@ const LoginPage = () => {
     if (response.status == 200) {
       localStorage.setItem("token", result.data.token);
       dispatch(saveToken(result.data.token));
-      navigate("/cars/add");
+      navigate("/cars");
     } else {
       setAlertVisible(true);
     }

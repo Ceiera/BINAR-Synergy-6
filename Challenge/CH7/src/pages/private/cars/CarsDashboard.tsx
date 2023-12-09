@@ -21,6 +21,7 @@ interface Page {
 }
 
 const CarsDashboard = () => {
+  const navigate = useNavigate();
   const [listCars, setListCars] = useState([]);
   const [renderCars, setRenderCars] = useState([]);
   const [sideBarDetailVisible, setSideBarDetailVisible] = useState(false);
@@ -41,7 +42,7 @@ const CarsDashboard = () => {
       visible: true,
     },
   };
-  const navigate = useNavigate();
+
   const [dialogDeleteVisible, setdialogDeleteVisible] = useState(false);
 
   const sideBarDetail: SideBarDetailEntity = {
@@ -107,7 +108,7 @@ const CarsDashboard = () => {
     if (location.state) {
       validationAlert();
     }
-  }, [location]);
+  });
 
   const filterCar = (size: string) => {
     if (size === "ALL") {
@@ -149,7 +150,7 @@ const CarsDashboard = () => {
     setdialogDeleteVisible(!dialogDeleteVisible);
   };
 
-  return (
+  return localStorage.getItem("token") ? (
     <>
       <div className="flex flex-row h-full min-h-[100vh] overflow-hidden relative">
         <div className="flex flex-row sticky">
@@ -279,6 +280,8 @@ const CarsDashboard = () => {
         )}
       </div>
     </>
+  ) : (
+    navigate("/login")
   );
 };
 
