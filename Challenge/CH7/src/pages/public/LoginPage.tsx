@@ -1,10 +1,11 @@
 import { useState, ChangeEvent } from "react";
 import { Input, Button, Alert } from "antd";
-import LoginBackground from "../../assets/loginbackground.png";
 import { useNavigate } from "react-router-dom";
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 import { useDispatch } from "react-redux";
 import { saveToken } from "../../redux/slices/token";
+
+const  LoginBackground = "../../assets/loginbackground.png";
 
 interface googleAuth {
   credential?: string;
