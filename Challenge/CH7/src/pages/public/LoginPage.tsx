@@ -5,7 +5,7 @@ import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 import { useDispatch } from "react-redux";
 import { saveToken } from "../../redux/slices/token";
 
-import  LoginBackground from "../../assets/loginbackground.png";
+const  LoginBackground = "./loginbackground.png";
 
 interface googleAuth {
   credential?: string;
