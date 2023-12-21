@@ -15,11 +15,9 @@ app.use(AuthRouter);
 app.use(CarsRouter);
 app.use(UserRouter);
 
-console.log(process.env.POSTGRESQL_DATABASE);
-
-console.log(process.env.POSTGRESQL_USER);
-console.log(process.env.POSTGRESQL_PASSWORD);
-
-app.listen(port, () => {
-  console.log(`Listening on port: ${port}`);
-});
+// const listen = app.listen(port, () => {
+//   console.log(`Listening on port: ${port}`);
+// });
+const server = app.listen(port, () => {
+})
+export default server

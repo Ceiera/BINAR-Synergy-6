@@ -37,7 +37,7 @@ class UserRepository {
     }
   }
 
-  static async getUserByEmail(email: string): Promise<User> {
+ static async getUserByEmail(email: string): Promise<User> {
     try {
       const userQuery: User[] = await UserEntity.query().where("email", email);
       const selectedUser: User = userQuery[0];
