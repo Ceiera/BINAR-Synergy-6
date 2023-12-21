@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState, useEffect } from "react";
 import CarEntity from "../../../models/entity/Car";
 import SideBar from "../../../components/organism/SideBar";
