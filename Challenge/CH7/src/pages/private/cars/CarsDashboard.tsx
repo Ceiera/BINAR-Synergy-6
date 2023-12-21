@@ -150,7 +150,7 @@ const CarsDashboard = () => {
     setdialogDeleteVisible(!dialogDeleteVisible);
   };
 
-  return localStorage.getItem("token") ? (
+  return  (
     <>
       <div className="flex flex-row h-full min-h-[100vh] overflow-hidden relative">
         <div className="flex flex-row sticky">
@@ -280,9 +280,7 @@ const CarsDashboard = () => {
         )}
       </div>
     </>
-  ) : (
-    navigate("/login")
-  );
+  ) 
 };
 
 export default CarsDashboard;
